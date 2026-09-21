@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Dream Designs Biz</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 * {
@@ -14,14 +14,15 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #fff8f5;
+    background: linear-gradient(180deg, #fff8f5, #fff1f6);
     overflow-x: hidden;
 }
 
 header {
-    background-color: #8b3a62;
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
     color: white;
-    padding: 30px 15px;
+    padding: 40px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 h1 {
@@ -36,9 +37,12 @@ h1 {
 }
 
 nav {
-    padding: 15px;
+    padding: 16px 15px;
     background-color: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 900;
 }
 
 nav a {
@@ -82,17 +86,19 @@ nav a:hover {
 }
 
 .about {
-    background-color: white;
-    padding: 35px 20px;
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 40px 25px;
     margin: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
 }
 
 .about h2 {
     color: #8b3a62;
     font-size: 32px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    font-weight: 700;
 }
 
 .about p {
@@ -109,49 +115,73 @@ nav a:hover {
     padding: 10px;
 }
 
+
 .product {
     background-color: white;
     width: 320px;
     margin: 15px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-    transition: transform 0.2s ease;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(139,58,98,0.08);
 }
 
 .product:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(139,58,98,0.22);
 }
 
 .product img {
     width: 250px;
     height: 280px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 14px;
     max-width: 100%;
+    border: 2px solid rgba(139,58,98,0.10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(139,58,98,0.18);
 }
 
 .product h3 {
     font-size: 22px;
     color: #8b3a62;
-    margin: 15px 0;
+    margin: 18px 0 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+}
+
+.product-description {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 12px 0 20px;
+    min-height: 115px;
 }
 
 .product button {
-    background-color: #8b3a62;
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 13px 30px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
-    transition: 0.3s ease;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 10px rgba(139,58,98,0.20);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product button:hover {
-    background-color: #6f2d4e;
-    transform: scale(1.03);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 7px 16px rgba(139,58,98,0.28);
 }
 
 footer {
@@ -162,10 +192,158 @@ footer {
     text-align: center;
     font-size: 15px;
 }
+.gallery {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
 
+.gallery h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.gallery > p {
+    color: #666;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background-color: white;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(139,58,98,0.18);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.gallery-item h3 {
+    color: #8b3a62;
+    font-size: 18px;
+    margin: 12px 5px 5px;
+}
+.contact {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.contact h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.contact > p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: white;
+    width: 280px;
+    padding: 25px 20px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.contact-card h3 {
+    color: #8b3a62;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.contact-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.contact-note {
+    margin-top: 30px !important;
+    color: #8b3a62 !important;
+    font-weight: bold;
+}
 /* MOBILE */
 
 @media (max-width: 600px) {
+.gallery {
+    margin: 12px;
+    padding: 30px 12px;
+}
+
+.gallery h2 {
+    font-size: 27px;
+}
+
+.gallery > p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.gallery-item {
+    padding: 8px;
+}
+
+.gallery-item img {
+    height: 210px;
+}
+
+.gallery-item h3 {
+    font-size: 15px;
+    line-height: 1.3;
+}
 
     header {
         padding: 25px 12px;
@@ -180,23 +358,18 @@ footer {
     }
 
     nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-    padding: 10px 3px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 10px 8px;
 }
 
 nav a {
-    margin: 5px 7px;
+    margin: 0;
     font-size: 14px;
-    padding: 4px 2px;
+    padding: 8px 2px;
+    text-align: center;
 }
-
-    nav a {
-        margin: 6px 8px;
-        font-size: 14px;
-    }
 
     .welcome {
         margin: 12px;
@@ -234,29 +407,40 @@ nav a {
     }
 
     .product {
-        width: calc(100% - 24px);
-        max-width: 380px;
-        margin: 10px auto;
-        padding: 15px;
-    }
+    width: calc(100% - 20px);
+    max-width: 380px;
+    margin: 12px auto;
+    padding: 18px 14px;
+    border-radius: 20px;
+}
 
     .product img {
-        width: 100%;
-        max-width: 280px;
-        height: 300px;
-        object-fit: cover;
-    }
+    width: 100%;
+    max-width: 280px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 14px;
+}
 
     .product h3 {
-        font-size: 20px;
-    }
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 16px 0 10px;
+}
+
+    .product-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
 
     .product button {
-        width: 100%;
-        max-width: 280px;
-        padding: 13px 10px;
-        font-size: 15px;
-    }
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 10px;
+    font-size: 15px;
+    border-radius: 30px;
+}
 
     .whatsapp-button {
         right: 12px !important;
@@ -269,6 +453,7 @@ nav a {
         padding: 20px 10px;
         font-size: 14px;
     }
+
 }
 
 </style>
@@ -276,18 +461,21 @@ nav a {
 
 <body>
 
-    <header>
-        <h1>Dream Designs Biz</h1>
+<header>
+    <h1>Dream Designs Biz</h1>
 
-        <div class="tagline">
-            Elegant Indian Fashion for Every Occasion
-        </div>
-    </header>
+    <div class="tagline">
+        Elegant Indian Fashion for Every Occasion
+    </div>
+</header>
+
 <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
     <a href="#sarees">Sarees</a>
-    <a href="#dresses" onclick="window.scrollTo({top: document.getElementById('dresses').getBoundingClientRect().top + window.scrollY, behavior: 'smooth'}); return false;">Dresses</a>
+    <a href="#dresses">Dresses</a>
     <a href="#lehengas">Lehengas</a>
     <a href="#kuriti">Kuriti</a>
 </nav>
@@ -296,12 +484,18 @@ nav a {
 
     <h2>Welcome to Dream Designs Biz</h2>
 
-    <p>
-        Discover beautiful fashion and unique designs
-        made with love.
+    <p class="home-subtitle">
+        Discover beautiful Indian fashion,
+        elegant designs, and outfits made specially for you.
     </p>
 
-    <a href="#products" class="button">View Our Collection</a>
+    <p class="home-highlight">
+        ✨ Sarees &nbsp; | &nbsp; 👗 Dresses &nbsp; | &nbsp; 💕 Lehengas &nbsp; | &nbsp; 🌸 Kurtis
+    </p>
+
+    <a href="#products" class="button">
+        🛍️ Explore Our Collection
+    </a>
 
 </section>
 
@@ -315,67 +509,244 @@ nav a {
         elegant designs, and stylish outfits
         for every occasion.
     </p>
+</section>
+
+<section class="gallery" id="gallery">
+
+    <h2>Our Fashion Gallery</h2>
+
+    <p>
+        Explore our beautiful collection of Indian fashion designs.
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="images/product1.jpg">
+            <h3>Designer Saree</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/product2.jpg">
+            <h3>Party Dress</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/lehenga.jpg">
+            <h3>Designer Lehenga</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/kuriti.jpg">
+            <h3>Designer Kuriti</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/anarkali.jpg">
+            <h3>Anarkali Dress</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/designer-blouse.jpeg">
+            <h3>Designer Blouse</h3>
+        </div>
+
+    </div>
 
 </section>
 
 <div class="products" id="products">
 
+    <!-- SAREE -->
+
     <div class="product" id="sarees">
 
-        <img src="product1.jpg">
+        <img src="images/product1.jpg">
 
         <h3>Beautiful Designer Saree</h3>
 
-        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Saree%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you!" target="_blank">
+        <p class="product-description">
+            Elegant designer saree with beautiful detailing.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Custom design options
+        </p>
 
-    <button>Check Details & Customize</button>
-
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Saree%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+    <button type="button">Check Details & Customize</button>
 </a>
 
     </div>
 
 
-       <div class="product" id="dresses">
+    <!-- PARTY DRESS -->
 
-    <img src="product2.jpg">
+    <div class="product" id="dresses">
 
-    <h3>Elegant Party Dress</h3>
+        <img src="images/product2.jpg">
 
-    <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Party%20Dress%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you!" target="_blank">
-        <button>Check Details & Customize</button>
-    </a>
+        <h3>Elegant Party Dress</h3>
 
-</div>
+        <p class="product-description">
+            Elegant party dress for special occasions.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Design customization available
+        </p>
 
-<div class="product" id="lehengas">
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Party%20Dress%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+    <button type="button">Check Details & Customize</button>
+</a>
 
-    <img src="lehenga.jpg">
-
-    <h3>Beautiful Designer Lehenga</h3>
-
-    <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Lehenga%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you!" target="_blank">
-        <button>Check Details & Customize</button>
-    </a>
-
-</div>
-
-<div class="product" id="kuriti">
-
-    <img src="kuriti.jpg" width="300">
-
-    <h3>Beautiful Designer Kuriti</h3>
-
-    <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Kuriti%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you!" target="_blank">
-        <button>Check Details & Customize</button>
-    </a>
-
-</div>
     </div>
 
-    <footer>
-        © 2026 Dream Designs Biz
-    </footer>
-<a class="whatsapp-button" href="https://wa.me/919944001959"
+
+    <!-- LEHENGA -->
+
+    <div class="product" id="lehengas">
+
+        <img src="images/lehenga.jpg">
+
+        <h3>Beautiful Designer Lehenga</h3>
+
+        <p class="product-description">
+            Beautiful designer lehenga for weddings and celebrations.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Custom design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Lehenga%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+    <button type="button">Check Details & Customize</button>
+</a>
+
+    </div>
+
+
+    <!-- KURITI -->
+
+    <div class="product" id="kuriti">
+
+        <img src="images/kuriti.jpg">
+
+        <h3>Beautiful Designer Kuriti</h3>
+
+        <p class="product-description">
+            Stylish designer kurti for everyday and special occasions.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Multiple design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=Hello%20Dream%20Designs%20Biz%21%20I%20am%20interested%20in%20the%20Beautiful%20Designer%20Kuriti.%20Please%20send%20me%20the%20details%2C%20sizes%2C%20customization%20options%20and%20price." target="_blank">
+
+            <button type="button">Check Details & Customize</button>
+
+        </a>
+
+    </div>
+    <!-- ANARKALI DRESS -->
+
+    <div class="product" id="anarkali">
+
+        <img src="images/anarkali.jpg">
+
+        <h3>Elegant Designer Anarkali Dress</h3>
+
+        <p class="product-description">
+            Beautiful designer Anarkali dress for weddings,
+            parties, and special occasions.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Custom design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Designer%20Anarkali%20Dress%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+
+            <button type="button">Check Details & Customize</button>
+
+        </a>
+
+    </div>
+<!-- DESIGNER BLOUSE -->
+
+<div class="product" id="blouses">
+
+    <img src="images/designer-blouse.jpeg">
+
+    <h3>Elegant Designer Blouse</h3>
+
+    <p class="product-description">
+        Beautiful designer blouse with elegant embroidery
+        and stylish detailing.
+        <br>
+        ✨ Custom sizes available
+        <br>
+        ✨ Custom design options
+    </p>
+
+    <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Designer%20Blouse%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+
+        <button type="button">Check Details & Customize</button>
+
+    </a>
+
+</div>
+
+</div>
+<section class="contact" id="contact">
+
+    <h2>Contact Dream Designs Biz</h2>
+
+    <p>
+        Have a custom design or order requirement?
+        Contact us and let's create something beautiful for you.
+    </p>
+
+    <div class="contact-options">
+
+        <div class="contact-card">
+            <h3>💬 WhatsApp</h3>
+            <p>Chat with us for custom orders and design requirements.</p>
+            <a href="https://wa.me/919944001959" target="_blank">
+                Chat on WhatsApp
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>📧 Email</h3>
+            <p>dreamdesignsbiz@gmail.com</p>
+            <a href="mailto:dreamdesignsbiz@gmail.com">
+                Send Email
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>📸 Instagram</h3>
+            <p>@dreamdesignsbiz</p>
+            <a href="https://www.instagram.com/dreamdesignsbiz/" target="_blank">
+                Visit Instagram
+            </a>
+        </div>
+
+    </div>
+
+    <p class="contact-note">
+        ✨ Custom sizes • Custom designs • Custom requirements
+    </p>
+
+</section>
+<footer>
+    © 2026 Dream Designs Biz
+</footer>
+
+<a class="whatsapp-button"
+   href="https://wa.me/919944001959"
    target="_blank"
    style="
    position: fixed;
@@ -390,7 +761,10 @@ nav a {
    font-size: 16px;
    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
    z-index: 1000;">
+
    💬 WhatsApp Us
+
 </a>
+
 </body>
 </html>
