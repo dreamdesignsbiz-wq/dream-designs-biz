@@ -310,10 +310,55 @@ footer {
     color: #8b3a62 !important;
     font-weight: bold;
 }
+.location {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.location h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.location p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.location a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(139,58,98,0.20);
+}
+
 /* MOBILE */
 
 @media (max-width: 600px) {
-.gallery {
+.location {
+    margin: 12px;
+    padding: 30px 15px;
+}
+
+.location h2 {
+    font-size: 26px;
+}
+
+.location p {
+    font-size: 15px;
+}
+    .gallery {
     margin: 12px;
     padding: 30px 12px;
 }
@@ -474,6 +519,7 @@ nav a {
     <a href="#about">About</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
+    <a href="#location">Location</a>
     <a href="#sarees">Sarees</a>
     <a href="#dresses">Dresses</a>
     <a href="#lehengas">Lehengas</a>
@@ -739,6 +785,22 @@ nav a {
     <p class="contact-note">
         ✨ Custom sizes • Custom designs • Custom requirements
     </p>
+
+</section>
+<section class="location" id="location">
+
+    <h2>📍 Visit Dream Designs Biz</h2>
+
+    <p>
+        116, Motilal St, Near BSNL Office,<br>
+        Kumbakonam, Tamil Nadu 612001, India
+    </p>
+
+    <a
+        href="https://www.google.com/maps/search/?api=1&query=116%2C%20Motilal%20St%2C%20Near%20BSNL%20Office%2C%20Kumbakonam%2C%20Tamil%20Nadu%20612001%2C%20India"
+        target="_blank">
+        📍 Open Location in Google Maps
+    </a>
 
 </section>
 <footer>
