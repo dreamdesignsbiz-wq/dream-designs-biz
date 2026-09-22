@@ -3,7 +3,7 @@
 <head>
     <title>Dream Designs Biz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 
 * {
@@ -16,6 +16,7 @@ body {
     text-align: center;
     background: linear-gradient(180deg, #fff8f5, #fff1f6);
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -119,6 +120,8 @@ nav a:hover {
 .product {
     background-color: white;
     width: 320px;
+    animation: productFadeIn 0.8s ease;
+    animation-fill-mode: both;
     margin: 15px;
     padding: 20px;
     border-radius: 20px;
@@ -130,6 +133,18 @@ nav a:hover {
 .product:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 28px rgba(139,58,98,0.22);
+}
+
+@keyframes productFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .product img {
@@ -182,6 +197,163 @@ nav a:hover {
 .product button:hover {
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 7px 16px rgba(139,58,98,0.28);
+}
+
+/* CUSTOM ORDER CART */
+
+.cart-section {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.cart-section h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+#cart-items {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#cart-items p {
+    color: #666;
+    font-size: 16px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.quantity-controls button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #f3e1e9;
+    color: #8b3a62;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.quantity-controls button:hover {
+    background: #8b3a62;
+    color: white;
+}
+
+.quantity-number {
+    min-width: 25px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.send-order-button {
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(139,58,98,0.20);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.send-order-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 7px 16px rgba(139,58,98,0.28);
+}
+
+.cart-button {
+    margin-top: 10px;
+}
+
+#cart-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(139,58,98,0.10);
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+#cart-items li button {
+    background: #f3e1e9;
+    color: #8b3a62;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#cart-items li button {
+
+    background: #f3e1e9;
+
+    color: #8b3a62;
+
+    border: none;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+/* QUANTITY BUTTON FIX */
+
+.quantity-controls button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    background: #f3e1e9;
+    color: #8b3a62;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.quantity-controls button:hover {
+    background: #8b3a62;
+    color: white;
+}
+
+#cart-items li button:hover {
+    background: #8b3a62;
+    color: white;
 }
 
 footer {
@@ -239,6 +411,14 @@ footer {
     height: 280px;
     object-fit: cover;
     border-radius: 12px;
+} 
+
+.gallery-item img {
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
 }
 
 .gallery-item h3 {
@@ -349,6 +529,21 @@ footer {
 .location {
     margin: 12px;
     padding: 30px 15px;
+}
+
+#cart-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
 }
 
 .location h2 {
@@ -488,11 +683,23 @@ nav a {
 }
 
     .whatsapp-button {
-        right: 12px !important;
-        bottom: 20px !important;
-        padding: 12px 16px !important;
-        font-size: 14px !important;
-    }
+    right: 12px !important;
+    bottom: 20px !important;
+    width: 52px !important;
+    height: 52px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+}
+
+.whatsapp-button::before {
+    content: "\f232";
+    font-family: "Font Awesome 6 Brands";
+    font-size: 25px;
+}
 
     footer {
         padding: 20px 10px;
@@ -523,7 +730,9 @@ nav a {
     <a href="#sarees">Sarees</a>
     <a href="#dresses">Dresses</a>
     <a href="#lehengas">Lehengas</a>
-    <a href="#kuriti">Kuriti</a>
+    <a href="#kurtis">Kurtis</a>
+    <a href="#anarkali">Anarkali</a>
+    <a href="#blouses">Designer Blouse</a>
 </nav>
 
 <section class="welcome" id="home">
@@ -583,8 +792,8 @@ nav a {
         </div>
 
         <div class="gallery-item">
-            <img src="images/kuriti.jpg">
-            <h3>Designer Kuriti</h3>
+            <img src="images/kurtis.jpg">
+            <h3>Designer Kurtis</h3>
         </div>
 
         <div class="gallery-item">
@@ -622,6 +831,12 @@ nav a {
         <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Saree%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
     <button type="button">Check Details & Customize</button>
 </a>
+<button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Beautiful Designer Saree')">
+    🛍️ Add to Custom Order
+</button>
 
     </div>
 
@@ -646,6 +861,13 @@ nav a {
     <button type="button">Check Details & Customize</button>
 </a>
 
+<button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Elegant Party Dress')">
+    🛍️ Add to Custom Order
+</button>
+
     </div>
 
 
@@ -669,19 +891,26 @@ nav a {
     <button type="button">Check Details & Customize</button>
 </a>
 
+<button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Beautiful Designer Lehenga')">
+    🛍️ Add to Custom Order
+</button>
+
     </div>
 
 
-    <!-- KURITI -->
+    <!-- KURTIS -->
 
-    <div class="product" id="kuriti">
+    <div class="product" id="kurtis">
 
-        <img src="images/kuriti.jpg">
+        <img src="images/kurtis.jpg">
 
-        <h3>Beautiful Designer Kuriti</h3>
+        <h3>Beautiful Designer Kurtis</h3>
 
         <p class="product-description">
-            Stylish designer kurti for everyday and special occasions.
+            Stylish designer kurtis for everyday and special occasions.
             <br>
             ✨ Custom sizes available
             <br>
@@ -693,6 +922,13 @@ nav a {
             <button type="button">Check Details & Customize</button>
 
         </a>
+
+        <button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Beautiful Designer Kurtis')">
+    🛍️ Add to Custom Order
+</button>
 
     </div>
     <!-- ANARKALI DRESS -->
@@ -718,6 +954,13 @@ nav a {
 
         </a>
 
+        <button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Elegant Designer Anarkali Dress')">
+    🛍️ Add to Custom Order
+</button>
+
     </div>
 <!-- DESIGNER BLOUSE -->
 
@@ -741,6 +984,13 @@ nav a {
         <button type="button">Check Details & Customize</button>
 
     </a>
+
+    <button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Elegant Designer Blouse')">
+    🛍️ Add to Custom Order
+</button>
 
 </div>
 
@@ -803,6 +1053,24 @@ nav a {
     </a>
 
 </section>
+
+<section class="cart-section" id="custom-order">
+
+    <h2>🛍️ Your Custom Order</h2>
+
+    <div id="cart-items">
+        <p>Your custom order is empty.</p>
+    </div>
+
+    <button
+        type="button"
+        class="send-order-button"
+        onclick="sendCustomOrder()">
+        💬 Send Custom Order on WhatsApp
+    </button>
+
+</section>
+
 <footer>
     © 2026 Dream Designs Biz
 </footer>
@@ -827,6 +1095,136 @@ nav a {
    💬 WhatsApp Us
 
 </a>
+
+<script>
+    let customOrder = [];
+
+    function addToCart(productName) {
+        customOrder.push(productName);
+        displayCart();
+
+        document.getElementById("custom-order").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function displayCart() {
+        const cartItems = document.getElementById("cart-items");
+
+        if (customOrder.length === 0) {
+            cartItems.innerHTML = "<p>Your custom order is empty.</p>";
+            return;
+        }
+
+        const productCounts = {};
+
+        customOrder.forEach(function(product) {
+            productCounts[product] = (productCounts[product] || 0) + 1;
+        });
+
+        let html = "<ul>";
+
+        Object.keys(productCounts).forEach(function(product) {
+            const quantity = productCounts[product];
+
+            html += `
+                <li>
+                    <span>${product}</span>
+
+                    <div class="quantity-controls">
+
+                        <button
+                            type="button"
+                            onclick="decreaseQuantity('${product}')">
+                            −
+                        </button>
+
+                        <span class="quantity-number">
+                            ${quantity}
+                        </span>
+
+                        <button
+                            type="button"
+                            onclick="increaseQuantity('${product}')">
+                            +
+                        </button>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="removeProduct('${product}')">
+                        ❌ Remove
+                    </button>
+                </li>
+            `;
+        });
+
+        html += "</ul>";
+
+        cartItems.innerHTML = html;
+    }
+
+    function increaseQuantity(productName) {
+        customOrder.push(productName);
+        displayCart();
+    }
+
+    function decreaseQuantity(productName) {
+        const index = customOrder.indexOf(productName);
+
+        if (index !== -1) {
+            customOrder.splice(index, 1);
+        }
+
+        displayCart();
+    }
+
+    function removeProduct(productName) {
+        customOrder = customOrder.filter(function(product) {
+            return product !== productName;
+        });
+
+        displayCart();
+    }
+
+    function sendCustomOrder() {
+        if (customOrder.length === 0) {
+            alert("Your custom order is empty. Please add a product first.");
+            return;
+        }
+
+        const productCounts = {};
+
+        customOrder.forEach(function(product) {
+            productCounts[product] = (productCounts[product] || 0) + 1;
+        });
+
+        let message =
+            "🌸 CUSTOM ORDER REQUEST%0A%0A" +
+            "Hello Dream Designs Biz!%0A%0A" +
+            "I would like to enquire about:%0A%0A";
+
+        Object.keys(productCounts).forEach(function(product, index) {
+            message +=
+                (index + 1) +
+                ". " +
+                product +
+                " - Quantity: " +
+                productCounts[product] +
+                "%0A";
+        });
+
+        message +=
+            "%0A💕 Please contact me about custom sizes, designs, fabric choices, requirements, and final pricing.%0A%0A" +
+            "Thank you!";
+
+        window.open(
+            "https://wa.me/919944001959?text=" + message,
+            "_blank"
+        );
+    }
+</script>
 
 </body>
 </html>
