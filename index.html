@@ -62,6 +62,35 @@ h1 {
     background: white;
 }
 
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 10px;
+    background: white;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.category-buttons button {
+    border: none;
+    background: #f3e1e9;
+    color: #8b3a62;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+
+.category-buttons button:hover {
+    background: #8b3a62;
+    color: white;
+    transform: translateY(-2px);
+}
+
 nav {
     padding: 16px 15px;
     background-color: white;
@@ -84,10 +113,14 @@ nav a:hover {
 }
 
 .welcome {
+    display: block;
+    width: calc(100% - 40px);
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 50px 20px;
     background-color: #fff0f5;
     border-radius: 15px;
-    margin: 20px;
+    margin: 20px auto;
 }
 
 .welcome h2 {
@@ -112,12 +145,13 @@ nav a:hover {
 }
 
 .about {
+    display: block;
+    width: calc(100% - 40px);
+    max-width: 100%;
+    box-sizing: border-box;
     background: linear-gradient(135deg, #ffffff, #fff5f8);
     padding: 40px 25px;
-    margin: 20px;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
-    border: 1px solid rgba(139,58,98,0.08);
+    margin: 20px auto;
 }
 
 .about h2 {
@@ -611,34 +645,39 @@ footer {
 }
 
     header {
-        padding: 22px 8px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+    padding: 22px 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-    h1 {
-        font-size: 28px;
-        line-height: 1.2;
-        word-break: normal;
-    }
+h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    word-break: normal;
+}
+
+.tagline {
+    font-size: 14px;
+    line-height: 1.4;
+}
 
     .tagline {
         font-size: 15px;
     }
 
     .search-bar {
-        width: 100%;
-        padding: 10px 8px;
-        box-sizing: border-box;
-    }
+    width: 100%;
+    padding: 10px 8px;
+    box-sizing: border-box;
+}
 
-    .search-bar input {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        font-size: 14px;
-        padding: 12px 15px;
-    }
+.search-bar input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 12px 15px;
+}
 
     nav {
     display: grid;
@@ -771,6 +810,35 @@ nav a {
         placeholder="🔍 Search Sarees, Dresses, Lehengas, Kurtis..."
         onkeyup="searchProducts()">
 </div>
+<div class="category-buttons">
+
+    <button type="button" onclick="filterCategory('all')">All</button>
+
+    <button type="button" onclick="filterCategory('sarees')">
+        Sarees
+    </button>
+
+    <button type="button" onclick="filterCategory('dresses')">
+        Dresses
+    </button>
+
+    <button type="button" onclick="filterCategory('lehengas')">
+        Lehengas
+    </button>
+
+    <button type="button" onclick="filterCategory('kurtis')">
+        Kurtis
+    </button>
+
+    <button type="button" onclick="filterCategory('anarkali')">
+        Anarkali
+    </button>
+
+    <button type="button" onclick="filterCategory('blouses')">
+        Blouses
+    </button>
+
+</div>
 
 <nav>
     <a href="#home">Home</a>
@@ -815,6 +883,7 @@ nav a {
         elegant designs, and stylish outfits
         for every occasion.
     </p>
+
 </section>
 
 <section class="gallery" id="gallery">
@@ -1217,91 +1286,164 @@ nav a {
     }
 
     function increaseQuantity(productName) {
-        customOrder.push(productName);
-        displayCart();
+
+    customOrder.push(productName);
+
+    displayCart();
+
+}
+
+function decreaseQuantity(productName) {
+
+    const index = customOrder.indexOf(productName);
+
+    if (index !== -1) {
+        customOrder.splice(index, 1);
     }
 
-    function decreaseQuantity(productName) {
-        const index = customOrder.indexOf(productName);
+    displayCart();
 
-        if (index !== -1) {
-            customOrder.splice(index, 1);
-        }
+}
 
-        displayCart();
+function removeProduct(productName) {
+
+    customOrder = customOrder.filter(function(product) {
+
+        return product !== productName;
+
+    });
+
+    displayCart();
+
+}
+
+function sendCustomOrder() {
+
+    if (customOrder.length === 0) {
+
+        alert("Your custom order is empty. Please add a product first.");
+
+        return;
+
     }
 
-    function removeProduct(productName) {
-        customOrder = customOrder.filter(function(product) {
-            return product !== productName;
-        });
+    const productCounts = {};
 
-        displayCart();
-    }
+    customOrder.forEach(function(product) {
 
-    function sendCustomOrder() {
-        if (customOrder.length === 0) {
-            alert("Your custom order is empty. Please add a product first.");
-            return;
-        }
+        productCounts[product] = (productCounts[product] || 0) + 1;
 
-        const productCounts = {};
+    });
 
-        customOrder.forEach(function(product) {
-            productCounts[product] = (productCounts[product] || 0) + 1;
-        });
+    let message =
 
-        let message =
-            "🌸 CUSTOM ORDER REQUEST%0A%0A" +
-            "Hello Dream Designs Biz!%0A%0A" +
-            "I would like to enquire about:%0A%0A";
+        "🌸 CUSTOM ORDER REQUEST%0A%0A" +
 
-        Object.keys(productCounts).forEach(function(product, index) {
-            message +=
-                (index + 1) +
-                ". " +
-                product +
-                " - Quantity: " +
-                productCounts[product] +
-                "%0A";
-        });
+        "Hello Dream Designs Biz!%0A%0A" +
+
+        "I would like to enquire about:%0A%0A";
+
+    Object.keys(productCounts).forEach(function(product, index) {
 
         message +=
-            "%0A💕 Please contact me about custom sizes, designs, fabric choices, requirements, and final pricing.%0A%0A" +
-            "Thank you!";
 
-        window.open(
-            "https://wa.me/919944001959?text=" + message,
-            "_blank"
-        );
-    }
-    function searchProducts() {
+            (index + 1) +
 
-        const searchText = document
-            .getElementById("productSearch")
-            .value
-            .toLowerCase()
-            .trim();
+            ". " +
 
-        const products = document.querySelectorAll(".product");
+            product +
 
-        products.forEach(function(product) {
+            " - Quantity: " +
 
-            const productName = product
-                .querySelector("h3")
-                .textContent
-                .toLowerCase();
+            productCounts[product] +
 
-            if (productName.includes(searchText)) {
-                product.style.display = "";
-            } else {
-                product.style.display = "none";
-            }
+            "%0A";
 
+    });
+
+    message +=
+
+        "%0A💕 Please contact me about custom sizes, designs, fabric choices, requirements, and final pricing.%0A%0A" +
+
+        "Thank you!";
+
+    window.open(
+
+        "https://wa.me/919944001959?text=" + message,
+
+        "_blank"
+
+    );
+
+}
+
+
+function searchProducts() {
+
+    const searchText = document
+        .getElementById("productSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const products = document.querySelectorAll(".product");
+
+    products.forEach(function(product) {
+
+        const productName = product
+            .querySelector("h3")
+            .textContent
+            .toLowerCase();
+
+        if (productName.includes(searchText)) {
+
+            product.style.display = "";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+    if (searchText !== "") {
+
+        document.getElementById("products").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
+
     }
+
+}
+
+function filterCategory(category) {
+
+    const products = document.querySelectorAll(".product");
+
+    products.forEach(function(product) {
+
+        if (category === "all") {
+
+            product.style.display = "";
+
+        } else if (product.id === category) {
+
+            product.style.display = "";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
 
 </script>
 
 </body>
+
 </html>
