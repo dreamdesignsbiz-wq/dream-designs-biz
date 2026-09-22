@@ -37,6 +37,31 @@ h1 {
     margin-top: 10px;
 }
 
+.search-bar {
+    background: white;
+    padding: 12px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 899;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.search-bar input {
+    width: 90%;
+    max-width: 650px;
+    padding: 13px 18px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    background: #f8f8f8;
+}
+
+.search-bar input:focus {
+    border-color: #b85c8a;
+    background: white;
+}
+
 nav {
     padding: 16px 15px;
     background-color: white;
@@ -586,15 +611,33 @@ footer {
 }
 
     header {
-        padding: 25px 12px;
+        padding: 22px 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 28px;
+        line-height: 1.2;
+        word-break: normal;
     }
 
     .tagline {
         font-size: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+        padding: 10px 8px;
+        box-sizing: border-box;
+    }
+
+    .search-bar input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        padding: 12px 15px;
     }
 
     nav {
@@ -720,6 +763,14 @@ nav a {
         Elegant Indian Fashion for Every Occasion
     </div>
 </header>
+
+<div class="search-bar">
+    <input
+        type="text"
+        id="productSearch"
+        placeholder="🔍 Search Sarees, Dresses, Lehengas, Kurtis..."
+        onkeyup="searchProducts()">
+</div>
 
 <nav>
     <a href="#home">Home</a>
@@ -1224,6 +1275,32 @@ nav a {
             "_blank"
         );
     }
+    function searchProducts() {
+
+        const searchText = document
+            .getElementById("productSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+        const products = document.querySelectorAll(".product");
+
+        products.forEach(function(product) {
+
+            const productName = product
+                .querySelector("h3")
+                .textContent
+                .toLowerCase();
+
+            if (productName.includes(searchText)) {
+                product.style.display = "";
+            } else {
+                product.style.display = "none";
+            }
+
+        });
+    }
+
 </script>
 
 </body>
