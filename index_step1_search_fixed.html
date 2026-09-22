@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dream Designs Biz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(180deg, #fff8f5, #fff1f6);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+header {
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    padding: 40px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+h1 {
+    margin: 0;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.search-bar {
+    background: white;
+    padding: 12px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 899;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.search-bar input {
+    width: 90%;
+    max-width: 650px;
+    padding: 13px 18px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    background: #f8f8f8;
+}
+
+.search-bar input:focus {
+    border-color: #b85c8a;
+    background: white;
+}
+
+nav {
+    padding: 16px 15px;
+    background-color: white;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #8b3a62;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #6f2d4e;
+}
+
+.welcome {
+    padding: 50px 20px;
+    background-color: #fff0f5;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.welcome h2 {
+    font-size: 36px;
+    color: #8b3a62;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #8b3a62;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.about {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 40px 25px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.about h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+
+.product {
+    background-color: white;
+    width: 320px;
+    animation: productFadeIn 0.8s ease;
+    animation-fill-mode: both;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(139,58,98,0.22);
+}
+
+@keyframes productFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product img {
+    width: 250px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 14px;
+    max-width: 100%;
+    border: 2px solid rgba(139,58,98,0.10);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(139,58,98,0.18);
+}
+
+.product h3 {
+    font-size: 22px;
+    color: #8b3a62;
+    margin: 18px 0 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+}
+
+.product-description {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 12px 0 20px;
+    min-height: 115px;
+}
+
+.product button {
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 10px rgba(139,58,98,0.20);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 7px 16px rgba(139,58,98,0.28);
+}
+
+/* CUSTOM ORDER CART */
+
+.cart-section {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.cart-section h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+#cart-items {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#cart-items p {
+    color: #666;
+    font-size: 16px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.quantity-controls button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #f3e1e9;
+    color: #8b3a62;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.quantity-controls button:hover {
+    background: #8b3a62;
+    color: white;
+}
+
+.quantity-number {
+    min-width: 25px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.send-order-button {
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(139,58,98,0.20);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.send-order-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 7px 16px rgba(139,58,98,0.28);
+}
+
+.cart-button {
+    margin-top: 10px;
+}
+
+#cart-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(139,58,98,0.10);
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+#cart-items li button {
+    background: #f3e1e9;
+    color: #8b3a62;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#cart-items li button {
+
+    background: #f3e1e9;
+
+    color: #8b3a62;
+
+    border: none;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+/* QUANTITY BUTTON FIX */
+
+.quantity-controls button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    background: #f3e1e9;
+    color: #8b3a62;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.quantity-controls button:hover {
+    background: #8b3a62;
+    color: white;
+}
+
+#cart-items li button:hover {
+    background: #8b3a62;
+    color: white;
+}
+
+footer {
+    margin-top: 50px;
+    background-color: #8b3a62;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 15px;
+}
+.gallery {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.gallery h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.gallery > p {
+    color: #666;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background-color: white;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(139,58,98,0.18);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+} 
+
+.gallery-item img {
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item h3 {
+    color: #8b3a62;
+    font-size: 18px;
+    margin: 12px 5px 5px;
+}
+.contact {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.contact h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.contact > p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: white;
+    width: 280px;
+    padding: 25px 20px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.contact-card h3 {
+    color: #8b3a62;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.contact-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.contact-note {
+    margin-top: 30px !important;
+    color: #8b3a62 !important;
+    font-weight: bold;
+}
+.location {
+    background: linear-gradient(135deg, #ffffff, #fff5f8);
+    padding: 45px 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.10);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+.location h2 {
+    color: #8b3a62;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.location p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.location a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #8b3a62, #b85c8a);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(139,58,98,0.20);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+.location {
+    margin: 12px;
+    padding: 30px 15px;
+}
+
+#cart-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.location h2 {
+    font-size: 26px;
+}
+
+.location p {
+    font-size: 15px;
+}
+    .gallery {
+    margin: 12px;
+    padding: 30px 12px;
+}
+
+.gallery h2 {
+    font-size: 27px;
+}
+
+.gallery > p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.gallery-item {
+    padding: 8px;
+}
+
+.gallery-item img {
+    height: 210px;
+}
+
+.gallery-item h3 {
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+    header {
+        padding: 22px 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        word-break: normal;
+    }
+
+    .tagline {
+        font-size: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+        padding: 10px 8px;
+        box-sizing: border-box;
+    }
+
+    .search-bar input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+
+    nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 10px 8px;
+}
+
+nav a {
+    margin: 0;
+    font-size: 14px;
+    padding: 8px 2px;
+    text-align: center;
+}
+
+    .welcome {
+        margin: 12px;
+        padding: 35px 15px;
+    }
+
+    .welcome h2 {
+        font-size: 27px;
+    }
+
+    .welcome p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .about {
+        margin: 12px;
+        padding: 25px 15px;
+    }
+
+    .about h2 {
+        font-size: 26px;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .products {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .product {
+    width: calc(100% - 20px);
+    max-width: 380px;
+    margin: 12px auto;
+    padding: 18px 14px;
+    border-radius: 20px;
+}
+
+    .product img {
+    width: 100%;
+    max-width: 280px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+    .product h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 16px 0 10px;
+}
+
+    .product-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+    .product button {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 10px;
+    font-size: 15px;
+    border-radius: 30px;
+}
+
+    .whatsapp-button {
+    right: 12px !important;
+    bottom: 20px !important;
+    width: 52px !important;
+    height: 52px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+}
+
+.whatsapp-button::before {
+    content: "\f232";
+    font-family: "Font Awesome 6 Brands";
+    font-size: 25px;
+}
+
+    footer {
+        padding: 20px 10px;
+        font-size: 14px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Dream Designs Biz</h1>
+
+    <div class="tagline">
+        Elegant Indian Fashion for Every Occasion
+    </div>
+</header>
+
+<div class="search-bar">
+    <input
+        type="text"
+        id="productSearch"
+        placeholder="🔍 Search Sarees, Dresses, Lehengas, Kurtis..."
+        onkeyup="searchProducts()">
+</div>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#location">Location</a>
+    <a href="#sarees">Sarees</a>
+    <a href="#dresses">Dresses</a>
+    <a href="#lehengas">Lehengas</a>
+    <a href="#kurtis">Kurtis</a>
+    <a href="#anarkali">Anarkali</a>
+    <a href="#blouses">Designer Blouse</a>
+</nav>
+
+<section class="welcome" id="home">
+
+    <h2>Welcome to Dream Designs Biz</h2>
+
+    <p class="home-subtitle">
+        Discover beautiful Indian fashion,
+        elegant designs, and outfits made specially for you.
+    </p>
+
+    <p class="home-highlight">
+        ✨ Sarees &nbsp; | &nbsp; 👗 Dresses &nbsp; | &nbsp; 💕 Lehengas &nbsp; | &nbsp; 🌸 Kurtis
+    </p>
+
+    <a href="#products" class="button">
+        🛍️ Explore Our Collection
+    </a>
+
+</section>
+
+<section class="about" id="about">
+
+    <h2>About Dream Designs Biz</h2>
+
+    <p>
+        Welcome to Dream Designs Biz.
+        We bring you beautiful Indian fashion,
+        elegant designs, and stylish outfits
+        for every occasion.
+    </p>
+</section>
+
+<section class="gallery" id="gallery">
+
+    <h2>Our Fashion Gallery</h2>
+
+    <p>
+        Explore our beautiful collection of Indian fashion designs.
+    </p>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="images/product1.jpg">
+            <h3>Designer Saree</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/product2.jpg">
+            <h3>Party Dress</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/lehenga.jpg">
+            <h3>Designer Lehenga</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/kurtis.jpg">
+            <h3>Designer Kurtis</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/anarkali.jpg">
+            <h3>Anarkali Dress</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/designer-blouse.jpeg">
+            <h3>Designer Blouse</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="products" id="products">
+
+    <!-- SAREE -->
+
+    <div class="product" id="sarees">
+
+        <img src="images/product1.jpg">
+
+        <h3>Beautiful Designer Saree</h3>
+
+        <p class="product-description">
+            Elegant designer saree with beautiful detailing.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Custom design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Saree%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+    <button type="button">Check Details & Customize</button>
+</a>
+<button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Beautiful Designer Saree')">
+    🛍️ Add to Custom Order
+</button>
+
+    </div>
+
+
+    <!-- PARTY DRESS -->
+
+    <div class="product" id="dresses">
+
+        <img src="images/product2.jpg">
+
+        <h3>Elegant Party Dress</h3>
+
+        <p class="product-description">
+            Elegant party dress for special occasions.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Design customization available
+        </p>
+
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Party%20Dress%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+    <button type="button">Check Details & Customize</button>
+</a>
+
+<button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Elegant Party Dress')">
+    🛍️ Add to Custom Order
+</button>
+
+    </div>
+
+
+    <!-- LEHENGA -->
+
+    <div class="product" id="lehengas">
+
+        <img src="images/lehenga.jpg">
+
+        <h3>Beautiful Designer Lehenga</h3>
+
+        <p class="product-description">
+            Beautiful designer lehenga for weddings and celebrations.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Custom design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Beautiful%20Designer%20Lehenga%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+    <button type="button">Check Details & Customize</button>
+</a>
+
+<button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Beautiful Designer Lehenga')">
+    🛍️ Add to Custom Order
+</button>
+
+    </div>
+
+
+    <!-- KURTIS -->
+
+    <div class="product" id="kurtis">
+
+        <img src="images/kurtis.jpg">
+
+        <h3>Beautiful Designer Kurtis</h3>
+
+        <p class="product-description">
+            Stylish designer kurtis for everyday and special occasions.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Multiple design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=Hello%20Dream%20Designs%20Biz%21%20I%20am%20interested%20in%20the%20Beautiful%20Designer%20Kuriti.%20Please%20send%20me%20the%20details%2C%20sizes%2C%20customization%20options%20and%20price." target="_blank">
+
+            <button type="button">Check Details & Customize</button>
+
+        </a>
+
+        <button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Beautiful Designer Kurtis')">
+    🛍️ Add to Custom Order
+</button>
+
+    </div>
+    <!-- ANARKALI DRESS -->
+
+    <div class="product" id="anarkali">
+
+        <img src="images/anarkali.jpg">
+
+        <h3>Elegant Designer Anarkali Dress</h3>
+
+        <p class="product-description">
+            Beautiful designer Anarkali dress for weddings,
+            parties, and special occasions.
+            <br>
+            ✨ Custom sizes available
+            <br>
+            ✨ Custom design options
+        </p>
+
+        <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Designer%20Anarkali%20Dress%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+
+            <button type="button">Check Details & Customize</button>
+
+        </a>
+
+        <button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Elegant Designer Anarkali Dress')">
+    🛍️ Add to Custom Order
+</button>
+
+    </div>
+<!-- DESIGNER BLOUSE -->
+
+<div class="product" id="blouses">
+
+    <img src="images/designer-blouse.jpeg">
+
+    <h3>Elegant Designer Blouse</h3>
+
+    <p class="product-description">
+        Beautiful designer blouse with elegant embroidery
+        and stylish detailing.
+        <br>
+        ✨ Custom sizes available
+        <br>
+        ✨ Custom design options
+    </p>
+
+    <a href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20PRODUCT%20ENQUIRY%0A%0A%F0%9F%91%97%20Elegant%20Designer%20Blouse%0A%0AHello%20Dream%20Designs%20Biz%21%0A%0AI%27d%20like%20to%20know%20about%20custom%20sizes%2C%20design%20options%2C%20fabric%20choices%2C%20available%20details%2C%20and%20pricing.%0A%0A%F0%9F%92%95%20Please%20help%20me%20choose%20the%20perfect%20design%20for%20my%20requirements.%0A%0AThank%20you%21" target="_blank">
+
+        <button type="button">Check Details & Customize</button>
+
+    </a>
+
+    <button
+    type="button"
+    class="cart-button"
+    onclick="addToCart('Elegant Designer Blouse')">
+    🛍️ Add to Custom Order
+</button>
+
+</div>
+
+</div>
+<section class="contact" id="contact">
+
+    <h2>Contact Dream Designs Biz</h2>
+
+    <p>
+        Have a custom design or order requirement?
+        Contact us and let's create something beautiful for you.
+    </p>
+
+    <div class="contact-options">
+
+        <div class="contact-card">
+            <h3>💬 WhatsApp</h3>
+            <p>Chat with us for custom orders and design requirements.</p>
+            <a href="https://wa.me/919944001959" target="_blank">
+                Chat on WhatsApp
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>📧 Email</h3>
+            <p>dreamdesignsbiz@gmail.com</p>
+            <a href="mailto:dreamdesignsbiz@gmail.com">
+                Send Email
+            </a>
+        </div>
+
+        <div class="contact-card">
+            <h3>📸 Instagram</h3>
+            <p>@dreamdesignsbiz</p>
+            <a href="https://www.instagram.com/dreamdesignsbiz/" target="_blank">
+                Visit Instagram
+            </a>
+        </div>
+
+    </div>
+
+    <p class="contact-note">
+        ✨ Custom sizes • Custom designs • Custom requirements
+    </p>
+
+</section>
+<section class="location" id="location">
+
+    <h2>📍 Visit Dream Designs Biz</h2>
+
+    <p>
+        116, Motilal St, Near BSNL Office,<br>
+        Kumbakonam, Tamil Nadu 612001, India
+    </p>
+
+    <a
+        href="https://www.google.com/maps/search/?api=1&query=116%2C%20Motilal%20St%2C%20Near%20BSNL%20Office%2C%20Kumbakonam%2C%20Tamil%20Nadu%20612001%2C%20India"
+        target="_blank">
+        📍 Open Location in Google Maps
+    </a>
+
+</section>
+
+<section class="cart-section" id="custom-order">
+
+    <h2>🛍️ Your Custom Order</h2>
+
+    <div id="cart-items">
+        <p>Your custom order is empty.</p>
+    </div>
+
+    <button
+        type="button"
+        class="send-order-button"
+        onclick="sendCustomOrder()">
+        💬 Send Custom Order on WhatsApp
+    </button>
+
+</section>
+
+<footer>
+    © 2026 Dream Designs Biz
+</footer>
+
+<a class="whatsapp-button"
+   href="https://wa.me/919944001959"
+   target="_blank"
+   style="
+   position: fixed;
+   bottom: 70px;
+   right: 20px;
+   background-color: #25D366;
+   color: white;
+   padding: 14px 20px;
+   border-radius: 30px;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 16px;
+   box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+   z-index: 1000;">
+
+   💬 WhatsApp Us
+
+</a>
+
+<script>
+    let customOrder = [];
+
+    function addToCart(productName) {
+        customOrder.push(productName);
+        displayCart();
+
+        document.getElementById("custom-order").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function displayCart() {
+        const cartItems = document.getElementById("cart-items");
+
+        if (customOrder.length === 0) {
+            cartItems.innerHTML = "<p>Your custom order is empty.</p>";
+            return;
+        }
+
+        const productCounts = {};
+
+        customOrder.forEach(function(product) {
+            productCounts[product] = (productCounts[product] || 0) + 1;
+        });
+
+        let html = "<ul>";
+
+        Object.keys(productCounts).forEach(function(product) {
+            const quantity = productCounts[product];
+
+            html += `
+                <li>
+                    <span>${product}</span>
+
+                    <div class="quantity-controls">
+
+                        <button
+                            type="button"
+                            onclick="decreaseQuantity('${product}')">
+                            −
+                        </button>
+
+                        <span class="quantity-number">
+                            ${quantity}
+                        </span>
+
+                        <button
+                            type="button"
+                            onclick="increaseQuantity('${product}')">
+                            +
+                        </button>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="removeProduct('${product}')">
+                        ❌ Remove
+                    </button>
+                </li>
+            `;
+        });
+
+        html += "</ul>";
+
+        cartItems.innerHTML = html;
+    }
+
+    function increaseQuantity(productName) {
+        customOrder.push(productName);
+        displayCart();
+    }
+
+    function decreaseQuantity(productName) {
+        const index = customOrder.indexOf(productName);
+
+        if (index !== -1) {
+            customOrder.splice(index, 1);
+        }
+
+        displayCart();
+    }
+
+    function removeProduct(productName) {
+        customOrder = customOrder.filter(function(product) {
+            return product !== productName;
+        });
+
+        displayCart();
+    }
+
+    function sendCustomOrder() {
+        if (customOrder.length === 0) {
+            alert("Your custom order is empty. Please add a product first.");
+            return;
+        }
+
+        const productCounts = {};
+
+        customOrder.forEach(function(product) {
+            productCounts[product] = (productCounts[product] || 0) + 1;
+        });
+
+        let message =
+            "🌸 CUSTOM ORDER REQUEST%0A%0A" +
+            "Hello Dream Designs Biz!%0A%0A" +
+            "I would like to enquire about:%0A%0A";
+
+        Object.keys(productCounts).forEach(function(product, index) {
+            message +=
+                (index + 1) +
+                ". " +
+                product +
+                " - Quantity: " +
+                productCounts[product] +
+                "%0A";
+        });
+
+        message +=
+            "%0A💕 Please contact me about custom sizes, designs, fabric choices, requirements, and final pricing.%0A%0A" +
+            "Thank you!";
+
+        window.open(
+            "https://wa.me/919944001959?text=" + message,
+            "_blank"
+        );
+    }
+    function searchProducts() {
+
+        const searchText = document
+            .getElementById("productSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+        const products = document.querySelectorAll(".product");
+
+        products.forEach(function(product) {
+
+            const productName = product
+                .querySelector("h3")
+                .textContent
+                .toLowerCase();
+
+            if (productName.includes(searchText)) {
+                product.style.display = "";
+            } else {
+                product.style.display = "none";
+            }
+
+        });
+    }
+
+</script>
+
+</body>
+</html>
