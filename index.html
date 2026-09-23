@@ -91,6 +91,11 @@ h1 {
     transform: translateY(-2px);
 }
 
+.category-buttons button.active {
+    background: #8b3a62;
+    color: white;
+}
+
 nav {
     padding: 16px 15px;
     background-color: white;
@@ -194,6 +199,20 @@ nav a:hover {
     box-shadow: 0 12px 28px rgba(139,58,98,0.22);
 }
 
+.wishlist-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
 @keyframes productFadeIn {
     from {
         opacity: 0;
@@ -256,6 +275,29 @@ nav a:hover {
 .product button:hover {
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 7px 16px rgba(139,58,98,0.28);
+}
+
+.product .wishlist-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    max-width: 42px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background: white;
+    color: #8b3a62;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.product .wishlist-button:hover {
+    transform: scale(1.1);
 }
 
 /* CUSTOM ORDER CART */
@@ -679,6 +721,25 @@ h1 {
     padding: 12px 15px;
 }
 
+.category-buttons {
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.category-buttons button {
+    padding: 9px 16px;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
     nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -788,6 +849,58 @@ nav a {
         font-size: 14px;
     }
 
+}
+
+.quick-view {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.quick-view-content {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.quick-view-content h2 {
+    color: #8b3a62;
+    margin-bottom: 15px;
+}
+
+.quick-view-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.quick-view-content button {
+    background: #8b3a62;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quick-view-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none !important;
+    color: #8b3a62 !important;
+    font-size: 28px;
+    padding: 0 !important;
 }
 
 </style>
@@ -932,11 +1045,21 @@ nav a {
 
 <div class="products" id="products">
 
-    <!-- SAREE -->
+        <!-- SAREE -->
 
     <div class="product" id="sarees">
 
-        <img src="images/product1.jpg">
+        <button
+    type="button"
+    class="wishlist-button"
+    onclick="toggleWishlist(this)">
+    ♡
+</button>
+
+
+        <img
+    src="images/product1.jpg"
+    onclick="openQuickView('Beautiful Designer Saree')">
 
         <h3>Beautiful Designer Saree</h3>
 
@@ -964,6 +1087,13 @@ nav a {
     <!-- PARTY DRESS -->
 
     <div class="product" id="dresses">
+
+        <button
+    type="button"
+    class="wishlist-button"
+    onclick="toggleWishlist(this)">
+    ♡
+</button>
 
         <img src="images/product2.jpg">
 
@@ -995,6 +1125,13 @@ nav a {
 
     <div class="product" id="lehengas">
 
+        <button
+    type="button"
+    class="wishlist-button"
+    onclick="toggleWishlist(this)">
+    ♡
+</button>
+
         <img src="images/lehenga.jpg">
 
         <h3>Beautiful Designer Lehenga</h3>
@@ -1024,6 +1161,13 @@ nav a {
     <!-- KURTIS -->
 
     <div class="product" id="kurtis">
+
+        <button
+    type="button"
+    class="wishlist-button"
+    onclick="toggleWishlist(this)">
+    ♡
+</button>
 
         <img src="images/kurtis.jpg">
 
@@ -1055,6 +1199,13 @@ nav a {
 
     <div class="product" id="anarkali">
 
+        <button
+    type="button"
+    class="wishlist-button"
+    onclick="toggleWishlist(this)">
+    ♡
+</button>
+
         <img src="images/anarkali.jpg">
 
         <h3>Elegant Designer Anarkali Dress</h3>
@@ -1085,6 +1236,14 @@ nav a {
 <!-- DESIGNER BLOUSE -->
 
 <div class="product" id="blouses">
+
+    <button
+    type="button"
+    class="wishlist-button"
+    onclick="toggleWishlist(this)">
+    ♡
+</button>
+
 
     <img src="images/designer-blouse.jpeg">
 
@@ -1421,6 +1580,15 @@ function searchProducts() {
 function filterCategory(category) {
 
     const products = document.querySelectorAll(".product");
+    const buttons = document.querySelectorAll(".category-buttons button");
+
+    buttons.forEach(function(button) {
+        button.classList.remove("active");
+    });
+
+    document.querySelector(
+    '.category-buttons button[onclick="filterCategory(\'' + category + '\')"]'
+).classList.add("active");
 
     products.forEach(function(product) {
 
@@ -1439,6 +1607,62 @@ function filterCategory(category) {
         }
 
     });
+
+}
+
+function toggleWishlist(button) {
+
+    if (button.textContent.trim() === "♡") {
+
+        button.textContent = "♥";
+
+    } else {
+
+        button.textContent = "♡";
+
+    }
+
+}
+
+<div id="quickView" class="quick-view">
+
+    <div class="quick-view-content">
+
+        <button
+            type="button"
+            class="quick-view-close"
+            onclick="closeQuickView()">
+            ×
+        </button>
+
+        <h2 id="quickViewTitle"></h2>
+
+        <p>
+            Beautiful designer fashion with
+            custom sizes and customization options.
+        </p>
+
+        <button
+            type="button"
+            onclick="closeQuickView()">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+function openQuickView(productName) {
+
+    document.getElementById("quickViewTitle").textContent = productName;
+
+    document.getElementById("quickView").style.display = "flex";
+
+}
+
+function closeQuickView() {
+
+    document.getElementById("quickView").style.display = "none";
 
 }
 
