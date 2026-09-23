@@ -122,20 +122,52 @@ nav a:hover {
     width: calc(100% - 40px);
     max-width: 100%;
     box-sizing: border-box;
-    padding: 50px 20px;
+    padding: 55px 20px;
     background-color: #fff0f5;
-    border-radius: 15px;
+    border-radius: 20px;
     margin: 20px auto;
+    box-shadow: 0 6px 20px rgba(139,58,98,0.08);
 }
 
 .welcome h2 {
     font-size: 36px;
     color: #8b3a62;
     margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
+
 
 .welcome p {
     font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.home-banner {
+    margin: 25px auto;
+    padding: 22px 15px;
+    max-width: 650px;
+    background: linear-gradient(135deg, #fff, #f9e3ec);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(139,58,98,0.15);
+    border: 1px solid rgba(139,58,98,0.08);
+}
+
+
+.home-banner h3 {
+    margin: 0 0 10px;
+    color: #8b3a62;
+    font-size: 22px;
+}
+
+.home-banner p {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
 }
 
 .button {
@@ -147,6 +179,15 @@ nav a:hover {
     text-decoration: none;
     border-radius: 25px;
     font-weight: bold;
+}
+
+.button {
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(139,58,98,0.25);
 }
 
 .about {
@@ -980,6 +1021,16 @@ nav a {
         ✨ Sarees &nbsp; | &nbsp; 👗 Dresses &nbsp; | &nbsp; 💕 Lehengas &nbsp; | &nbsp; 🌸 Kurtis
     </p>
 
+<div class="home-banner">
+
+    <h3>✨ Fashion Made Specially for You ✨</h3>
+
+    <p>
+        Custom designs • Custom sizes • Custom requirements
+    </p>
+
+</div>
+
     <a href="#products" class="button">
         🛍️ Explore Our Collection
     </a>
@@ -1060,7 +1111,6 @@ nav a {
         <img
     src="images/product1.jpg"
     onclick="openQuickView('Beautiful Designer Saree')">
-
         <h3>Beautiful Designer Saree</h3>
 
         <p class="product-description">
@@ -1095,7 +1145,9 @@ nav a {
     ♡
 </button>
 
-        <img src="images/product2.jpg">
+        <img
+    src="images/product2.jpg"
+    onclick="openQuickView('Elegant Party Dress')">
 
         <h3>Elegant Party Dress</h3>
 
@@ -1132,7 +1184,9 @@ nav a {
     ♡
 </button>
 
-        <img src="images/lehenga.jpg">
+        <img
+    src="images/lehenga.jpg"
+    onclick="openQuickView('Beautiful Designer Lehenga')">
 
         <h3>Beautiful Designer Lehenga</h3>
 
@@ -1169,7 +1223,9 @@ nav a {
     ♡
 </button>
 
-        <img src="images/kurtis.jpg">
+        <img
+    src="images/kurtis.jpg"
+    onclick="openQuickView('Beautiful Designer Kurtis')">
 
         <h3>Beautiful Designer Kurtis</h3>
 
@@ -1206,7 +1262,9 @@ nav a {
     ♡
 </button>
 
-        <img src="images/anarkali.jpg">
+        <img
+    src="images/anarkali.jpg"
+    onclick="openQuickView('Elegant Designer Anarkali Dress')">
 
         <h3>Elegant Designer Anarkali Dress</h3>
 
@@ -1245,7 +1303,9 @@ nav a {
 </button>
 
 
-    <img src="images/designer-blouse.jpeg">
+    <img
+    src="images/designer-blouse.jpeg"
+    onclick="openQuickView('Elegant Designer Blouse')">
 
     <h3>Elegant Designer Blouse</h3>
 
@@ -1374,6 +1434,35 @@ nav a {
    💬 WhatsApp Us
 
 </a>
+
+<div id="quickView" class="quick-view">
+
+    <div class="quick-view-content">
+
+        <button
+            type="button"
+            class="quick-view-close"
+            onclick="closeQuickView()">
+            ×
+        </button>
+
+        <h2 id="quickViewTitle"></h2>
+
+        <p>
+            Beautiful designer fashion with
+            custom sizes and customization options.
+        </p>
+
+        <button
+            type="button"
+            onclick="closeQuickView()">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
 
 <script>
     let customOrder = [];
@@ -1624,33 +1713,6 @@ function toggleWishlist(button) {
 
 }
 
-<div id="quickView" class="quick-view">
-
-    <div class="quick-view-content">
-
-        <button
-            type="button"
-            class="quick-view-close"
-            onclick="closeQuickView()">
-            ×
-        </button>
-
-        <h2 id="quickViewTitle"></h2>
-
-        <p>
-            Beautiful designer fashion with
-            custom sizes and customization options.
-        </p>
-
-        <button
-            type="button"
-            onclick="closeQuickView()">
-            Close
-        </button>
-
-    </div>
-
-</div>
 
 function openQuickView(productName) {
 
