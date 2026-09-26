@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 
+/* Smooth Page Scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -1161,6 +1167,91 @@ nav a {
     margin-bottom: 0;
 }
 
+.cart-description {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+    margin: 10px auto 25px;
+    padding: 0 15px;
+}
+
+.clear-cart-button {
+    display: block;
+    width: 100%;
+    margin: 12px auto 0;
+    padding: 12px;
+    background: #ffffff;
+    color: #963d70;
+    border: 1px solid #e8c8d9;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.clear-cart-button:hover {
+    background: #fceaf2;
+}
+
+.cart-count {
+    color: #963d70;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Saree Transformation Enquiry Button */
+
+#saree-transformation button {
+    background: linear-gradient(135deg, #a83e68, #7d294f);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(125, 41, 79, 0.2);
+    transition: 0.3s ease;
+}
+
+#saree-transformation button:hover {
+    background: #7d294f;
+    transform: translateY(-2px);
+}
+
+/* Back to Top Button */
+
+.back-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #a83e68, #7d294f);
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(125, 41, 79, 0.25);
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+
+.back-to-top:hover {
+    background: #7d294f;
+    transform: translateY(-3px);
+}
+
 </style>
 </head>
 
@@ -1231,7 +1322,9 @@ nav a {
     <a href="#kurtis">Kurtis</a>
     <a href="#anarkali">Anarkali</a>
     <a href="#blouses">Designer Blouse</a>
+    <a href="#saree-transformation">Saree Transformation</a>
 </nav>
+
 
 <section class="welcome" id="home">
 
@@ -1704,6 +1797,67 @@ nav a {
 </div>
 
 </div>
+
+<!-- MEMORABLE SAREE TRANSFORMATION -->
+
+<section class="welcome" id="saree-transformation">
+
+    <h2>❤️ Memorable Saree Transformation</h2>
+
+    <p class="home-subtitle">
+        Preserve your precious memories by transforming
+        your wedding saree, your mother's saree, or any
+        special saree into a beautiful new outfit.
+    </p>
+
+    <div class="home-banner">
+
+        <h3>✨ Give Your Memories a New Life ✨</h3>
+
+        <p>
+            Transform your memorable sarees into:
+        </p>
+
+        <p>
+            👗 Chudidar / Salwar Suits<br>
+            ✨ Lehengas<br>
+            🌸 Kurtis<br>
+            💕 Other customized outfits
+        </p>
+
+        <p>
+            Additional work available:
+        </p>
+
+        <p>
+            🪡 Aari Work<br>
+            ✨ Embroidery<br>
+            💎 Saree Polishing<br>
+            🌷 Other custom design work
+        </p>
+
+        <p>
+            Every saree holds a special memory.
+            Let us help you turn it into something
+            beautiful that you can wear again.
+        </p>
+
+    </div>
+
+    <a
+        href="https://wa.me/919944001959?text=Hello%20Dream%20Designs%20Biz%21%20I%20would%20like%20to%20enquire%20about%20transforming%20my%20memorable%20saree.%20I%20am%20interested%20in%20a%20custom%20outfit%20and%20additional%20work."
+        target="_blank">
+
+        <button type="button">
+            ❤️ Enquire About Saree Transformation
+        </button>
+
+    </a>
+
+</section>
+
+<!-- END MEMORABLE SAREE TRANSFORMATION -->
+
 <section class="contact" id="contact">
 
     <h2>Contact Dream Designs Biz</h2>
@@ -1767,6 +1921,11 @@ nav a {
 
     <h2>🛍️ Your Custom Order</h2>
 
+    <p class="cart-description">
+    Review your selected products below. You can change quantities or remove items before sending your custom order enquiry on WhatsApp.
+</p>
+
+<p id="cart-count" class="cart-count">0 items in your cart</p>
     <div id="cart-items">
         <p>Your custom order is empty.</p>
     </div>
@@ -1777,6 +1936,13 @@ nav a {
         onclick="sendCustomOrder()">
         💬 Send Custom Order on WhatsApp
     </button>
+
+<button
+    type="button"
+    class="clear-cart-button"
+    onclick="clearCustomOrder()">
+    🗑️ Clear Cart
+</button>
 
 </section>
 
@@ -1958,6 +2124,14 @@ function closeSizeGuide() {
 
     function displayCart() {
         const cartItems = document.getElementById("cart-items");
+        const cartCount = document.getElementById("cart-count");
+const totalItems = customOrder.length;
+
+cartCount.textContent =
+    totalItems +
+    (totalItems === 1
+        ? " item in your cart"
+        : " items in your cart");
 
         if (customOrder.length === 0) {
             cartItems.innerHTML = "<p>Your custom order is empty.</p>";
@@ -2044,6 +2218,27 @@ function removeProduct(productName) {
     displayCart();
 
 }
+
+function clearCustomOrder() {
+    if (customOrder.length === 0) {
+        alert("Your custom order is already empty.");
+        return;
+    }
+
+    const confirmClear = confirm(
+        "Are you sure you want to clear all products from your cart?"
+    );
+
+    if (!confirmClear) {
+        return;
+    }
+
+    customOrder = [];
+    displayCart();
+
+    alert("Your custom order has been cleared.");
+}
+
 
 function sendCustomOrder() {
 
@@ -2210,6 +2405,14 @@ function closeQuickView() {
 }
 
 </script>
+
+<!-- BACK TO TOP BUTTON -->
+
+<a href="#home" class="back-to-top" aria-label="Back to top">
+    ↑
+</a>
+
+<!-- END BACK TO TOP BUTTON -->
 
 </body>
 
