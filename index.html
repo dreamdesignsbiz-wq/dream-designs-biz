@@ -1156,7 +1156,8 @@ nav a {
 
 .product-customization ul {
     margin: 0;
-    padding-left: 22px;
+    padding-left: 0;
+    list-style: none;
     color: #555;
     line-height: 1.7;
 }
@@ -1676,35 +1677,54 @@ header {
     <div class="gallery-grid">
 
         <div class="gallery-item">
-            <img src="images/product1.jpg">
+            <img src="images/product1.jpg"
+     onclick="openQuickView('Beautiful Designer Saree')"
+     style="cursor: pointer;">
             <h3>Designer Saree</h3>
         </div>
 
         <div class="gallery-item">
-            <img src="images/product2.jpg">
+            <img src="images/product2.jpg"
+     onclick="openQuickView('Elegant Party Dress')"
+     style="cursor: pointer;">
             <h3>Party Dress</h3>
         </div>
 
         <div class="gallery-item">
-            <img src="images/lehenga.jpg">
+            <img src="images/lehenga.jpg"
+     onclick="openQuickView('Beautiful Designer Lehenga')"
+     style="cursor: pointer;">
             <h3>Designer Lehenga</h3>
         </div>
 
         <div class="gallery-item">
-            <img src="images/kurtis.jpg">
+           <img src="images/kurtis.jpg"
+     onclick="openQuickView('Beautiful Designer Kurtis')"
+     style="cursor: pointer;">
             <h3>Designer Kurtis</h3>
         </div>
 
         <div class="gallery-item">
-            <img src="images/anarkali.jpg">
+           <img src="images/anarkali.jpg"
+     onclick="openQuickView('Elegant Anarkali Dress')"
+     style="cursor: pointer;">
             <h3>Anarkali Dress</h3>
         </div>
 
         <div class="gallery-item">
-            <img src="images/designer-blouse.jpeg">
+            <img src="images/designer-blouse.jpeg"
+     onclick="openQuickView('Elegant Designer Blouse')"
+     style="cursor: pointer;">
             <h3>Designer Blouse</h3>
         </div>
 
+        <div class="gallery-item">
+    <img src="images/saree-salwar-transformation.jpg"
+     onclick="openQuickView('Saree to Salwar Transformation')"
+     style="cursor: pointer;">
+    <h3>Saree to Salwar Transformation</h3>
+</div>
+        
     </div>
 
 </section>
@@ -1818,6 +1838,8 @@ header {
         <li>💗 Special requirements</li>
     </ul>
 
+
+
 </div>    
 
         <a
@@ -1881,6 +1903,7 @@ header {
         <li>💗 Special requirements</li>
     </ul>
 
+    
 </div>
 
    <a
@@ -2109,6 +2132,11 @@ header {
     <div class="home-banner">
 
         <h3>✨ Give Your Memories a New Life ✨</h3>
+
+        <img
+    src="images/saree-salwar-transformation.jpg"
+    alt="Saree converted into Salwar"
+    style="width: 100%; max-width: 850px; border-radius: 16px; margin: 20px auto; display: block;">
 
         <p>
             Transform your memorable sarees into:
@@ -2688,7 +2716,39 @@ function toggleWishlist(button) {
 
 function openQuickView(productName) {
 
-    document.getElementById("quickViewTitle").textContent = productName;
+    const images = {
+        "Beautiful Designer Saree": "images/product1.jpg",
+        "Elegant Party Dress": "images/product2.jpg",
+        "Beautiful Designer Lehenga": "images/lehenga.jpg",
+        "Beautiful Designer Kurtis": "images/kurtis.jpg",
+        "Elegant Anarkali Dress": "images/anarkali.jpg",
+        "Elegant Designer Blouse": "images/designer-blouse.jpeg",
+        "Saree to Salwar Transformation": "images/saree-salwar-transformation.jpg"
+    };
+
+    const title = document.getElementById("quickViewTitle");
+    const popup = document.querySelector(".quick-view-content");
+
+    title.textContent = productName;
+
+    let image = document.getElementById("quickViewImage");
+
+    if (!image) {
+        image = document.createElement("img");
+        image.id = "quickViewImage";
+
+        image.style.width = "100%";
+        image.style.maxHeight = "260px";
+        image.style.objectFit = "contain";
+        image.style.borderRadius = "12px";
+        image.style.marginBottom = "15px";
+        image.style.display = "block";
+
+        title.before(image);
+    }
+
+    image.src = images[productName] || "";
+    image.alt = productName;
 
     document.getElementById("quickView").style.display = "flex";
 
