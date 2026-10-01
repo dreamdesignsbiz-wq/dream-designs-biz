@@ -715,7 +715,9 @@ footer {
 .gallery > p {
     color: #666;
     font-size: 17px;
-    margin-bottom: 30px;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
 
 .gallery-grid {
@@ -724,6 +726,12 @@ footer {
     gap: 20px;
     max-width: 1100px;
     margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+    .gallery-grid .gallery-item:last-child {
+        grid-column: 2;
+    }
 }
 
 .gallery-item {
@@ -1338,12 +1346,12 @@ header {
 .hero {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     align-items: stretch;
     gap: 28px;
     width: 100%;
     max-width: none;
-    min-height: 560px;
+    min-height: 680px;
     margin: 0;
     padding: 46px clamp(28px, 7.5vw, 130px) 50px;
     overflow: hidden;
@@ -1351,9 +1359,9 @@ header {
     border-radius: 0;
     box-shadow: none;
     background:
-        radial-gradient(ellipse at 12% 18%, rgba(255,255,255,.82) 0 12%, transparent 35%),
-        radial-gradient(ellipse at 52% 78%, rgba(255,255,255,.72) 0 10%, transparent 38%),
-        linear-gradient(110deg, #fff0e7 0%, #fbe2dc 48%, #f7d5d1 100%);
+    radial-gradient(circle at 18% 25%, rgba(255,255,255,.9), transparent 32%),
+    radial-gradient(circle at 78% 70%, rgba(255,255,255,.55), transparent 35%),
+    linear-gradient(120deg, #fff8f3 0%, #fde8e2 50%, #f8d8d2 100%);
     text-align: left;
 }
 .hero-copy { align-self: center; position: relative; z-index: 1; max-width: 760px; }
@@ -1388,7 +1396,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    padding: 0 10px;
+    padding: 8px 12px;
     color: #351b20;
     text-align: center;
     text-decoration: none;
@@ -1421,12 +1429,13 @@ header {
 .hero-visual {
     position: relative;
     align-self: stretch;
-    min-height: 430px;
+    min-height: 600px;
     overflow: hidden;
-    border-radius: 48% 48% 8px 8px / 28% 28% 8px 8px;
+    border-radius: 30px;
     background: linear-gradient(145deg, #f8d9d0, #f4c7c4);
     box-shadow: 0 18px 50px rgba(110, 48, 53, .12);
 }
+
 .hero-visual::before {
     position: absolute;
     inset: 0;
@@ -1608,7 +1617,9 @@ header {
 
     <div class="header-actions">
         <a href="#contact">Contact</a>
-        <a class="header-cart" href="#custom-order" aria-label="Custom order cart">♧</a>
+        <a class="header-cart" href="#custom-order" aria-label="Custom order cart">
+    <i class="fa-solid fa-bag-shopping"></i>
+</a>
         <a class="header-whatsapp" href="https://wa.me/919944001959" target="_blank" rel="noopener">◉ &nbsp; WhatsApp Enquiry</a>
     </div>
 </header>
@@ -1658,11 +1669,20 @@ header {
     <h2>About Dream Designs Biz</h2>
 
     <p>
-        Welcome to Dream Designs Biz.
-        We bring you beautiful Indian fashion,
-        elegant designs, and stylish outfits
-        for every occasion.
-    </p>
+    Welcome to Dream Designs Biz — where every thread tells a beautiful story.
+    We create and customize sarees, lehengas, dresses, kurtis, anarkalis,
+    designer blouses, and more to match your style, measurements, and occasion.
+    Choose your preferred colour, fabric, design, and detailing, and let us
+    create something special just for you.
+</p>
+
+<p>
+    Our mission is to bring your fashion dreams to life with creativity,
+    craftsmanship, and personal attention. Whether you are looking for a
+    timeless saree transformation, a beautiful lehenga, a stylish kurti,
+    an elegant anarkali, or a perfectly customized blouse, we are here to
+    create something that feels special and uniquely yours.
+</p>
 
 </section>
 
@@ -1671,8 +1691,12 @@ header {
     <h2>Our Fashion Gallery</h2>
 
     <p>
-        Explore our beautiful collection of Indian fashion designs.
-    </p>
+    Explore our collection of beautiful, customizable fashion designs,
+    created to match your style, measurements, occasion, and preferences.
+    From sarees, dresses, lehengas, kurtis, anarkalis, and designer blouses
+    to our memorable saree transformation service, discover something
+    special for you.
+</p>
 
     <div class="gallery-grid">
 
@@ -2319,6 +2343,14 @@ header {
             Close
         </button>
 
+        <a
+    id="quickViewWhatsApp"
+    href="#"
+    target="_blank"
+    style="display: inline-block; margin-top: 12px; background: #25D366; color: white; padding: 12px 22px; border-radius: 25px; text-decoration: none; font-weight: bold;">
+    💬 Enquire on WhatsApp
+</a>
+
     </div>
 
 </div>
@@ -2731,6 +2763,44 @@ function openQuickView(productName) {
 
     title.textContent = productName;
 
+    const whatsappButton = document.getElementById("quickViewWhatsApp");
+
+whatsappButton.href =
+    "https://wa.me/919944001959?text=" +
+    encodeURIComponent(
+        "Hello Dream Designs Biz! I am interested in: " + productName +
+        ". I would like to know about customization options and final pricing."
+    );
+
+    const description = document.querySelector(".quick-view-content p");
+
+if (productName === "Saree to Salwar Transformation") {
+    description.textContent =
+        "Transform your memorable saree into a Kurti, Lehenga, Long Top, Salwar Suit, or other customized outfit. Choose your preferred style, design, and detailing. Enquire with us for customization options and final pricing.";
+} else if (productName === "Beautiful Designer Saree") {
+    description.textContent =
+        "Explore our beautiful designer sarees with your choice of colour, fabric, blouse style, measurements, and custom detailing. Enquire with us for available designs and final pricing.";
+} else if (productName === "Elegant Party Dress") {
+    description.textContent =
+        "Customize your party dress with your preferred colour, fabric, style, measurements, neckline, sleeve design, and finishing details. Enquire with us for available options and final pricing.";
+} else if (productName === "Beautiful Designer Lehenga") {
+    description.textContent =
+        "Customize your designer lehenga with your preferred colour, fabric, blouse style, measurements, neckline, sleeve style, lehenga length, flare, dupatta style, and detailing. Enquire with us for available options and final pricing.";
+       } else if (productName === "Beautiful Designer Kurtis") {
+    description.textContent =
+        "Customize your designer Kurti with your preferred colour, fabric, neckline, sleeve style, length, measurements, embroidery, Aari work, and other detailing. Enquire with us for available options and final pricing.";
+} else if (productName === "Elegant Anarkali Dress") {
+    description.textContent =
+        "Customize your Anarkali dress with your preferred colour, fabric, neckline, sleeve style, dress length, measurements, embroidery, Aari work, and other detailing. Enquire with us for available options and final pricing.";
+} else if (productName === "Elegant Designer Blouse") {
+    description.textContent =
+        "Customize your designer blouse with your preferred colour, fabric, neckline, sleeve style, blouse length, measurements, back design, embroidery, Aari work, and other detailing. Enquire with us for available options and final pricing.";
+} else {
+    description.textContent =
+        "Beautiful designer fashion with custom sizes and customization options.";
+}
+
+
     let image = document.getElementById("quickViewImage");
 
     if (!image) {
@@ -2769,6 +2839,8 @@ function closeQuickView() {
 </a>
 
 <!-- END BACK TO TOP BUTTON -->
+
+
 
 </body>
 
