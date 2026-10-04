@@ -1653,6 +1653,39 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
         object-position: center 25%;
     }
 }
+
+.custom-requirements-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.custom-requirements-section label {
+    display: block;
+    margin: 20px auto 8px;
+    font-weight: bold;
+    color: #8b3a62;
+}
+
+.custom-requirements-section select,
+.custom-requirements-section input,
+.custom-requirements-section textarea {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.custom-requirements-section textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
 </style>
 </head>
 
@@ -2306,6 +2339,72 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 
 </section>
 
+<section class="custom-requirements-section" id="custom-requirements">
+
+    <h2>✨ Custom Requirements</h2>
+
+    <p>
+        Tell us your preferred style, colour, size, fabric, and design.
+        We will help you create something beautiful just for you.
+    </p>
+
+   <label for="custom-product">👗 What would you like to customize?</label>
+
+<select id="custom-product">
+    <option value="">Select a product</option>
+    <option value="Saree">Saree</option>
+    <option value="Party Dress">Party Dress</option>
+    <option value="Lehenga">Lehenga</option>
+    <option value="Kurtis">Kurtis</option>
+    <option value="Anarkali">Anarkali</option>
+    <option value="Designer Blouse">Designer Blouse</option>
+    <option value="Saree to Salwar Transformation">Saree to Salwar Transformation</option>
+</select> 
+
+<label for="custom-colour">🎨 Preferred Colour</label>
+
+<input
+    type="text"
+    id="custom-colour"
+    placeholder="Enter your preferred colour">
+
+    <label for="custom-size">📏 Size / Measurements</label>
+
+<input
+    type="text"
+    id="custom-size"
+    placeholder="Enter your size or measurements">
+
+    <label for="custom-fabric">🧵 Fabric Preference</label>
+
+<input
+    type="text"
+    id="custom-fabric"
+    placeholder="Enter your preferred fabric">
+
+    <label for="custom-design">✨ Design / Customization Details</label>
+
+<textarea
+    id="custom-design"
+    rows="4"
+    placeholder="Tell us about your preferred design, embroidery, neckline, sleeves, stitching, or any special customization..."></textarea>
+
+    <label for="custom-special">❤️ Special Requirements</label>
+
+<textarea
+    id="custom-special"
+    rows="3"
+    placeholder="Any other special requirements or instructions..."></textarea>
+
+    <button
+    type="button"
+    class="custom-requirements-button"
+    onclick="sendCustomRequirements()">
+    💬 Send Custom Requirements on WhatsApp
+</button>
+
+</section>
+
 <section class="cart-section" id="custom-order">
 
     <h2>🛍️ Your Custom Order</h2>
@@ -2713,6 +2812,40 @@ document.addEventListener("DOMContentLoaded", function() {
     displayCart();
 });
 
+function sendCustomRequirements() {
+
+    const product = document.getElementById("custom-product").value;
+    const colour = document.getElementById("custom-colour").value;
+    const size = document.getElementById("custom-size").value;
+    const fabric = document.getElementById("custom-fabric").value;
+    const design = document.getElementById("custom-design").value;
+    const special = document.getElementById("custom-special").value;
+
+    if (product === "") {
+        alert("Please select a product first.");
+        return;
+    }
+
+    const message =
+        "🌸 CUSTOM REQUIREMENTS REQUEST\n\n" +
+        "Hello Dream Designs Biz!\n\n" +
+        "👗 Product: " + product + "\n" +
+        "🎨 Preferred Colour: " + (colour || "Not specified") + "\n" +
+        "📏 Size / Measurements: " + (size || "Not specified") + "\n" +
+        "🧵 Fabric Preference: " + (fabric || "Not specified") + "\n" +
+        "✨ Design / Customization Details: " + (design || "Not specified") + "\n" +
+        "❤️ Special Requirements: " + (special || "Not specified") + "\n\n" +
+        "Please contact me to discuss my requirements.\n\n" +
+        "Thank you!";
+
+    window.open(
+        "https://wa.me/919944001959?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+
 function searchProducts() {
 
     const searchText = document
@@ -2742,15 +2875,7 @@ function searchProducts() {
 
     });
 
-    if (searchText !== "") {
-
-        document.getElementById("products").scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-
+    
 }
 
 function filterCategory(category) {
