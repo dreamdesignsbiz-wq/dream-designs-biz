@@ -1678,11 +1678,236 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     border-radius: 10px;
     box-sizing: border-box;
     font-size: 15px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .custom-requirements-section textarea {
     min-height: 120px;
     resize: vertical;
+}
+
+.custom-requirements-section select:focus,
+.custom-requirements-section input:focus,
+.custom-requirements-section textarea:focus {
+    outline: none;
+    border-color: #8b3a62;
+    box-shadow: 0 0 0 3px rgba(139, 58, 98, 0.12);
+}
+
+.custom-requirements-section select:hover,
+.custom-requirements-section input:hover,
+.custom-requirements-section textarea:hover {
+    border-color: #c98aa7;
+}
+
+ .custom-requirements-button {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto 0;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #25D366, #1ebe5d);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(37, 211, 102, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-requirements-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(37, 211, 102, 0.32);
+}
+
+@media (max-width: 650px) {
+    .custom-requirements-section {
+        padding: 30px 15px;
+    }
+
+    .custom-requirements-section select,
+    .custom-requirements-section input,
+    .custom-requirements-section textarea {
+        font-size: 16px;
+    }
+
+    .custom-requirements-button {
+        width: 100%;
+        font-size: 15px;
+        padding: 13px 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .back-to-top {
+        bottom: 85px !important;
+        right: 15px !important;
+    }
+
+    .whatsapp-button {
+        bottom: 20px !important;
+        right: 15px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .custom-requirements-button {
+        font-size: 14px;
+        padding: 12px 10px;
+    }
+}
+
+.custom-requirements-note {
+    max-width: 600px;
+    margin: 10px auto 20px;
+    padding: 10px 15px;
+    color: #6f4a5a;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(139, 58, 98, 0.15);
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.custom-requirements-section input::placeholder,
+.custom-requirements-section textarea::placeholder {
+    color: #777;
+    opacity: 0.85;
+}
+
+@media (max-width: 400px) {
+    .custom-requirements-section label {
+        font-size: 15px;
+    }
+}
+
+
+.design-studio-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.design-studio-intro {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.design-studio-card {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px 25px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    box-shadow: 0 8px 25px rgba(139, 58, 98, 0.12);
+}
+
+.design-studio-card h3 {
+    margin: 25px 0 15px;
+    color: #8b3a62;
+}
+
+.design-studio-card select {
+    width: 100%;
+    max-width: 600px;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.studio-colour-options,
+.studio-fabric-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.studio-colour,
+.studio-fabric {
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 12px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.studio-colour:hover,
+.studio-fabric:hover {
+    transform: translateY(-2px);
+    border-color: #c98aa7;
+    box-shadow: 0 4px 10px rgba(139, 58, 98, 0.12);
+}
+
+.colour-circle {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 6px;
+    border: 1px solid #ccc;
+}
+
+.colour-circle.black { background: #111; }
+.colour-circle.white { background: #fff; }
+.colour-circle.red { background: #c62828; }
+.colour-circle.green { background: #2e7d32; }
+.colour-circle.blue { background: #1565c0; }
+.colour-circle.pink { background: #e91e63; }
+.colour-circle.gold { background: #d4af37; }
+
+.colour-circle.custom {
+    background: linear-gradient(135deg, #e91e63, #1565c0, #2e7d32, #d4af37);
+}
+
+.studio-summary {
+    max-width: 600px;
+    margin: 35px auto 25px;
+    padding: 20px;
+    background: #fff8fb;
+    border: 1px solid rgba(139, 58, 98, 0.15);
+    border-radius: 18px;
+    text-align: left;
+}
+
+.studio-summary h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.studio-summary p {
+    margin: 10px 0;
+}
+
+.studio-whatsapp-button {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #25D366, #1ebe5d);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(37, 211, 102, 0.25);
+}
+
+.studio-whatsapp-button:hover {
+    transform: translateY(-2px);
 }
 
 
@@ -2348,10 +2573,14 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
         We will help you create something beautiful just for you.
     </p>
 
-   <label for="custom-product">👗 What would you like to customize?</label>
+<p class="custom-requirements-note">
+    💡 You can leave any optional field blank if you are not sure yet.
+</p>
 
-<select id="custom-product">
-    <option value="">Select a product</option>
+   <label for="custom-product">👗 What would you like to customize? <span class="required-note">(Required)</span></label>
+
+<select id="custom-product" required>
+    <option value="" selected disabled>Select a product</option>
     <option value="Saree">Saree</option>
     <option value="Party Dress">Party Dress</option>
     <option value="Lehenga">Lehenga</option>
@@ -2361,36 +2590,32 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     <option value="Saree to Salwar Transformation">Saree to Salwar Transformation</option>
 </select> 
 
-<label for="custom-colour">🎨 Preferred Colour</label>
+<label for="custom-colour">🎨 Preferred Colour (Optional)</label>
 
 <input
     type="text"
     id="custom-colour"
     placeholder="Enter your preferred colour">
 
-    <label for="custom-size">📏 Size / Measurements</label>
-
+    <label for="custom-size">📏 Size / Measurements (Optional)</label>
 <input
     type="text"
     id="custom-size"
     placeholder="Enter your size or measurements">
 
-    <label for="custom-fabric">🧵 Fabric Preference</label>
-
+   <label for="custom-fabric">🧵 Fabric Preference (Optional)</label>
 <input
     type="text"
     id="custom-fabric"
     placeholder="Enter your preferred fabric">
 
-    <label for="custom-design">✨ Design / Customization Details</label>
-
+   <label for="custom-design">✨ Design / Customization Details (Optional)</label>
 <textarea
     id="custom-design"
     rows="4"
     placeholder="Tell us about your preferred design, embroidery, neckline, sleeves, stitching, or any special customization..."></textarea>
 
-    <label for="custom-special">❤️ Special Requirements</label>
-
+    <label for="custom-special">❤️ Special Requirements (Optional)</label>
 <textarea
     id="custom-special"
     rows="3"
@@ -2404,6 +2629,143 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 </button>
 
 </section>
+
+<!-- CUSTOM DESIGN STUDIO -->
+
+<section class="design-studio-section" id="design-studio">
+
+    <h2>🎨 Custom Design Studio</h2>
+
+    <p class="design-studio-intro">
+        Create your own look by choosing your preferred product,
+        colour, fabric, and design details.
+    </p>
+
+    <div class="design-studio-card">
+
+        <h3>👗 Choose Your Product</h3>
+
+        <select id="studio-product">
+            <option value="" selected disabled>Select a product</option>
+            <option value="Saree">Saree</option>
+            <option value="Party Dress">Party Dress</option>
+            <option value="Lehenga">Lehenga</option>
+            <option value="Kurtis">Kurtis</option>
+            <option value="Anarkali">Anarkali</option>
+            <option value="Designer Blouse">Designer Blouse</option>
+            <option value="Saree to Salwar Transformation">
+                Saree to Salwar Transformation
+            </option>
+        </select>
+
+        <h3>🎨 Choose Your Colour</h3>
+
+        <div class="studio-colour-options">
+
+            <button type="button" class="studio-colour" data-colour="Black">
+                <span class="colour-circle black"></span>
+                Black
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="White">
+                <span class="colour-circle white"></span>
+                White
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="Red">
+                <span class="colour-circle red"></span>
+                Red
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="Green">
+                <span class="colour-circle green"></span>
+                Green
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="Blue">
+                <span class="colour-circle blue"></span>
+                Blue
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="Pink">
+                <span class="colour-circle pink"></span>
+                Pink
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="Gold">
+                <span class="colour-circle gold"></span>
+                Gold
+            </button>
+
+            <button type="button" class="studio-colour" data-colour="Custom Colour">
+                <span class="colour-circle custom"></span>
+                Custom
+            </button>
+
+        </div>
+
+        <h3>🧵 Choose Your Fabric</h3>
+
+        <div class="studio-fabric-options">
+
+            <button type="button" class="studio-fabric" data-fabric="Cotton">
+                Cotton
+            </button>
+
+            <button type="button" class="studio-fabric" data-fabric="Silk">
+                Silk
+            </button>
+
+            <button type="button" class="studio-fabric" data-fabric="Georgette">
+                Georgette
+            </button>
+
+            <button type="button" class="studio-fabric" data-fabric="Chiffon">
+                Chiffon
+            </button>
+
+            <button type="button" class="studio-fabric" data-fabric="Velvet">
+                Velvet
+            </button>
+
+            <button type="button" class="studio-fabric" data-fabric="Other">
+                Other
+            </button>
+
+        </div>
+
+        <div class="studio-summary">
+
+            <h3>✨ Your Design Summary</h3>
+
+            <p>
+                <strong>Product:</strong>
+                <span id="studio-summary-product">Not selected</span>
+            </p>
+
+            <p>
+                <strong>Colour:</strong>
+                <span id="studio-summary-colour">Not selected</span>
+            </p>
+
+            <p>
+                <strong>Fabric:</strong>
+                <span id="studio-summary-fabric">Not selected</span>
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            class="studio-whatsapp-button">
+            💬 Send My Design to WhatsApp
+        </button>
+
+    </div>
+
+</section>
+
+<!-- END CUSTOM DESIGN STUDIO -->
 
 <section class="cart-section" id="custom-order">
 
