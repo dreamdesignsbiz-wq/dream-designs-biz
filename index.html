@@ -1821,6 +1821,21 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     box-sizing: border-box;
 }
 
+.studio-design-details {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    min-height: 120px;
+    resize: vertical;
+    font-family: inherit;
+}
+
 .studio-colour-options,
 .studio-fabric-options {
     display: flex;
@@ -1847,6 +1862,12 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     transform: translateY(-2px);
     border-color: #c98aa7;
     box-shadow: 0 4px 10px rgba(139, 58, 98, 0.12);
+}
+
+.studio-colour.selected {
+    border-color: #8b3a62;
+    box-shadow: 0 0 0 3px rgba(139, 58, 98, 0.15);
+    transform: translateY(-2px);
 }
 
 .colour-circle {
@@ -1908,6 +1929,61 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 
 .studio-whatsapp-button:hover {
     transform: translateY(-2px);
+}
+
+
+.studio-photo-preview {
+    margin: 15px auto 0;
+    text-align: center;
+}
+
+.studio-photo-preview img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(139, 58, 98, 0.12);
+}
+
+.studio-photo-help {
+    max-width: 500px;
+    margin: 8px auto 15px;
+    text-align: center;
+    color: #555;
+    line-height: 1.5;
+}
+
+.studio-photo-input {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px dashed #c98aaa;
+    border-radius: 10px;
+    background: #fff8fb;
+    cursor: pointer;
+}
+
+.studio-photo-preview {
+    margin: 18px auto 0;
+    padding: 10px;
+    max-width: 420px;
+    border: 1px solid #ead5df;
+    border-radius: 15px;
+    background: #fff;
+}
+
+.studio-photo-preview img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 
@@ -2753,13 +2829,145 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
                 <span id="studio-summary-fabric">Not selected</span>
             </p>
 
+            <p>
+                <strong>Work:</strong>
+                <span id="studio-summary-work">Not selected</span>
+            </p>
+
+            <p>
+                <strong>Design Details:</strong>
+                <span id="studio-summary-details">Not provided</span>
+            </p>
+
+            <p>
+                <strong>Size / Measurements:</strong>
+                <span id="studio-summary-measurements">Not provided</span>
+            </p>
+
+            <p>
+                 <strong>Sleeves:</strong>
+                 <span id="studio-summary-sleeves">Not selected</span>
+            </p>
+
+            <p>
+                 <strong>Neckline:</strong>
+                <span id="studio-summary-neckline">Not selected</span>
+            </p>
+
+            <p>
+                <strong>Special Requirements:</strong>
+                <span id="studio-summary-special">Not provided</span>
+            </p>
+
+<h3>✨ Choose Your Work</h3>
+
+<select id="studio-work">
+    <option value="" selected disabled>Select your preferred work</option>
+    <option value="No Special Work">No Special Work</option>
+    <option value="Embroidery">Embroidery</option>
+    <option value="Aari Work">Aari Work</option>
+    <option value="Hand Work">Hand Work</option>
+    <option value="Stone Work">Stone Work</option>
+    <option value="Zari Work">Zari Work</option>
+    <option value="Custom Work">Custom Work</option>
+</select>
+
+<h3>📝 Design Details</h3>
+
+<textarea
+    id="studio-design-details"
+    class="studio-design-details"
+    rows="4"
+    placeholder="Tell us about your preferred design, embroidery, neckline, sleeves, stitching, or any other details..."
+></textarea>
+
+<h3>📏 Size / Measurements</h3>
+
+<textarea
+    id="studio-measurements"
+    class="studio-design-details"
+    rows="3"
+    placeholder="Enter your size or measurements, for example: Size M, Bust 36, Waist 30, Length 44..."
+></textarea>
+
+<h3>👗 Sleeve Style</h3>
+
+<select id="studio-sleeves">
+    <option value="" selected disabled>Select sleeve style</option>
+    <option value="Sleeveless">Sleeveless</option>
+    <option value="Short Sleeve">Short Sleeve</option>
+    <option value="3/4 Sleeve">3/4 Sleeve</option>
+    <option value="Full Sleeve">Full Sleeve</option>
+    <option value="Puff Sleeve">Puff Sleeve</option>
+    <option value="Custom Sleeve">Custom Sleeve</option>
+</select>
+
+<h3>👗 Neckline Style</h3>
+
+<select id="studio-neckline">
+    <option value="" selected disabled>Select neckline style</option>
+    <option value="Round Neck">Round Neck</option>
+    <option value="V-Neck">V-Neck</option>
+    <option value="Square Neck">Square Neck</option>
+    <option value="Boat Neck">Boat Neck</option>
+    <option value="Sweetheart Neck">Sweetheart Neck</option>
+    <option value="High Neck">High Neck</option>
+    <option value="Custom Neckline">Custom Neckline</option>
+</select>
+
+<h3>❤️ Special Requirements</h3>
+
+<textarea
+    id="studio-special-notes"
+    class="studio-design-details"
+    rows="3"
+    placeholder="Tell us about any special requirements, instructions, delivery needs, or other important details..."
+></textarea>
+
+<h3>📸 Reference Photo</h3>
+
+<p class="studio-photo-help">
+    Upload a reference design, saree, blouse, embroidery, or colour photo.
+</p>
+
+<h3>📷 What is this photo for?</h3>
+
+<select id="studio-photo-type">
+    <option value="" selected disabled>Select photo type</option>
+    <option value="Reference Design">Reference Design</option>
+    <option value="Saree Photo">Saree Photo</option>
+    <option value="Blouse Design">Blouse Design</option>
+    <option value="Embroidery Reference">Embroidery Reference</option>
+    <option value="Colour Reference">Colour Reference</option>
+    <option value="Other">Other</option>
+</select>
+
+
+<input
+    type="file"
+    id="studio-reference-photo"
+    accept="image/*"
+    class="studio-photo-input">
+
+<div id="studio-photo-preview" class="studio-photo-preview"></div>
+
+<button
+    type="button"
+    id="studio-remove-photo"
+    class="studio-remove-photo">
+    ❌ Remove Photo
+</button>
+
+
         </div>
 
         <button
-            type="button"
-            class="studio-whatsapp-button">
+             type="button"
+             class="studio-whatsapp-button"
+             onclick="sendStudioDesignToWhatsApp()">
             💬 Send My Design to WhatsApp
         </button>
+
 
     </div>
 
@@ -3419,6 +3627,276 @@ document.querySelectorAll('.main-nav a[href^="#"]').forEach(function(link) {
         this.classList.add('active');
     });
 });
+
+const studioProduct = document.getElementById("studio-product");
+const studioSummaryProduct = document.getElementById("studio-summary-product");
+
+studioProduct.addEventListener("change", function() {
+    studioSummaryProduct.textContent = this.value;
+});
+
+const studioColours = document.querySelectorAll(".studio-colour");
+const studioSummaryColour = document.getElementById("studio-summary-colour");
+
+studioColours.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        studioColours.forEach(function(item) {
+            item.classList.remove("selected");
+        });
+
+        this.classList.add("selected");
+
+        studioSummaryColour.textContent =
+            this.getAttribute("data-colour");
+    });
+
+});
+
+const studioFabrics = document.querySelectorAll(".studio-fabric");
+const studioSummaryFabric = document.getElementById("studio-summary-fabric");
+
+studioFabrics.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        studioFabrics.forEach(function(item) {
+            item.classList.remove("selected");
+        });
+
+        this.classList.add("selected");
+
+        studioSummaryFabric.textContent =
+            this.getAttribute("data-fabric");
+    });
+
+});
+
+const studioWork = document.getElementById("studio-work");
+const studioSummaryWork = document.getElementById("studio-summary-work");
+
+studioWork.addEventListener("change", function() {
+    studioSummaryWork.textContent = this.value;
+});
+
+const studioDesignDetails =
+    document.getElementById("studio-design-details");
+
+const studioSummaryDetails =
+    document.getElementById("studio-summary-details");
+
+studioDesignDetails.addEventListener("input", function() {
+
+    studioSummaryDetails.textContent =
+        this.value.trim() || "Not provided";
+
+});
+
+const studioMeasurements =
+    document.getElementById("studio-measurements");
+
+const studioSummaryMeasurements =
+    document.getElementById("studio-summary-measurements");
+
+studioMeasurements.addEventListener("input", function() {
+
+    studioSummaryMeasurements.textContent =
+        this.value.trim() || "Not provided";
+
+});
+
+const studioSleeves =
+    document.getElementById("studio-sleeves");
+
+const studioSummarySleeves =
+    document.getElementById("studio-summary-sleeves");
+
+studioSleeves.addEventListener("change", function() {
+
+    studioSummarySleeves.textContent =
+        this.value;
+
+});
+
+const studioNeckline =
+    document.getElementById("studio-neckline");
+
+const studioSummaryNeckline =
+    document.getElementById("studio-summary-neckline");
+
+studioNeckline.addEventListener("change", function() {
+
+    studioSummaryNeckline.textContent =
+        this.value;
+
+});
+
+
+const studioSpecialNotes =
+    document.getElementById("studio-special-notes");
+
+const studioSummarySpecial =
+    document.getElementById("studio-summary-special");
+
+studioSpecialNotes.addEventListener("input", function() {
+
+    studioSummarySpecial.textContent =
+        this.value.trim() || "Not provided";
+
+});
+
+
+const studioReferencePhoto =
+    document.getElementById("studio-reference-photo");
+
+const studioPhotoPreview =
+    document.getElementById("studio-photo-preview");
+
+studioReferencePhoto.addEventListener("change", function() {
+
+    studioPhotoPreview.innerHTML = "";
+
+    if (this.files.length === 0) {
+        return;
+    }
+
+    const file = this.files[0];
+
+    if (!file.type.startsWith("image/")) {
+        alert("Please select an image file.");
+        this.value = "";
+        return;
+    }
+
+    const image = document.createElement("img");
+
+    image.src = URL.createObjectURL(file);
+    image.alt = "Reference photo preview";
+
+    studioPhotoPreview.appendChild(image);
+
+});
+
+const studioRemovePhoto =
+    document.getElementById("studio-remove-photo");
+
+const studioPhotoType =
+    document.getElementById("studio-photo-type");
+
+studioRemovePhoto.addEventListener("click", function() {
+
+    studioReferencePhoto.value = "";
+
+    studioPhotoPreview.innerHTML = "";
+
+    studioPhotoType.value = "";
+
+});
+
+function sendStudioDesignToWhatsApp() {
+
+    const product =
+        document.getElementById("studio-product").value || "Not selected";
+
+    const colour =
+        document.getElementById("studio-summary-colour").textContent;
+
+    const fabric =
+        document.getElementById("studio-summary-fabric").textContent;
+
+    const work =
+        document.getElementById("studio-summary-work").textContent;
+
+    const designDetails =
+        document.getElementById("studio-design-details").value.trim() ||
+        "Not provided";
+
+    const measurements =
+        document.getElementById("studio-measurements").value.trim() ||
+        "Not provided";
+
+    const sleeves =
+        document.getElementById("studio-sleeves").value ||
+        "Not selected";
+
+    const neckline =
+        document.getElementById("studio-neckline").value ||
+        "Not selected";
+
+    const special =
+        document.getElementById("studio-special-notes").value.trim() ||
+        "Not provided";
+
+    const photoInput =
+        document.getElementById("studio-reference-photo");
+
+    const photoType =
+        document.getElementById("studio-photo-type").value ||
+        "Not selected";
+
+    const hasPhoto =
+        photoInput.files.length > 0;
+
+    if (hasPhoto && photoType === "Not selected") {
+    alert("Please select what the reference photo is for.");
+    return;
+}
+
+    const photoMessage =
+    hasPhoto
+        ? "📸 Reference Photo Type: " + photoType + "\n" +
+          "📎 Reference Photo: Attached with this enquiry."
+        : "📸 Reference Photo: Not provided.";
+
+    const message =
+        "🌸 CUSTOM DESIGN REQUEST\n\n" +
+        "Hello Dream Designs Biz!\n\n" +
+        "👗 Product: " + product + "\n" +
+        "🎨 Colour: " + colour + "\n" +
+        "🧵 Fabric: " + fabric + "\n" +
+        "✨ Work: " + work + "\n" +
+        "📝 Design Details: " + designDetails + "\n" +
+        "📏 Size / Measurements: " + measurements + "\n" +
+        "👗 Sleeves: " + sleeves + "\n" +
+        "👗 Neckline: " + neckline + "\n" +
+        "❤️ Special Requirements: " + special + "\n" +
+        photoMessage + "\n\n" +
+        "Please contact me to discuss my custom design and final pricing.\n\n" +
+        "Thank you!";
+
+    if (
+        hasPhoto &&
+        navigator.share &&
+        navigator.canShare &&
+        navigator.canShare({
+            files: [photoInput.files[0]]
+        })
+    ) {
+
+        navigator.share({
+            text: message,
+            files: [photoInput.files[0]]
+        });
+
+        return;
+    }
+
+    if (hasPhoto) {
+        alert(
+            "Your reference photo is selected. " +
+            "WhatsApp will open next. " +
+            "Please attach the selected photo in WhatsApp."
+        );
+    }
+
+    window.open(
+        "https://wa.me/919944001959?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
 
 </script>
 
