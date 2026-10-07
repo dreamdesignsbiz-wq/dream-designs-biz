@@ -1970,6 +1970,26 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     cursor: pointer;
 }
 
+.studio-photo-input:hover {
+    border-color: #b4234d;
+    background: #fff;
+}
+
+.studio-photo-input::file-selector-button {
+    padding: 8px 14px;
+    margin-right: 10px;
+    background: #b4234d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.studio-photo-input::file-selector-button:hover {
+    background: #8b3a62;
+}
+
 .studio-photo-preview {
     margin: 18px auto 0;
     padding: 10px;
@@ -1986,6 +2006,25 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     border-radius: 10px;
 }
 
+#studio-remove-photo {
+    display: none;
+    margin: 12px auto 0;
+    padding: 9px 18px;
+    background: #fff;
+    color: #b4234d;
+    border: 1px solid #e3a9b9;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#studio-remove-photo:hover {
+    background: #b4234d;
+    color: white;
+    transform: translateY(-1px);
+}
 
 </style>
 </head>
@@ -2858,6 +2897,17 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
                 <strong>Special Requirements:</strong>
                 <span id="studio-summary-special">Not provided</span>
             </p>
+
+            <p>
+                <strong>Reference Photo Type:</strong>
+                <span id="studio-summary-photo-type">Not selected</span>
+            </p>
+
+            <p>
+                 <strong>Reference Photo:</strong>
+                <span id="studio-summary-photo">Not provided</span>
+            </p>
+
 
 <h3>✨ Choose Your Work</h3>
 
@@ -3761,6 +3811,10 @@ studioReferencePhoto.addEventListener("change", function() {
         return;
     }
 
+studioRemovePhoto.style.display = "block";
+
+    studioSummaryPhoto.textContent = this.files[0].name;
+
     const file = this.files[0];
 
     if (!file.type.startsWith("image/")) {
@@ -3781,6 +3835,12 @@ studioReferencePhoto.addEventListener("change", function() {
 const studioRemovePhoto =
     document.getElementById("studio-remove-photo");
 
+const studioSummaryPhotoType =
+    document.getElementById("studio-summary-photo-type");
+
+const studioSummaryPhoto =
+    document.getElementById("studio-summary-photo");
+
 const studioPhotoType =
     document.getElementById("studio-photo-type");
 
@@ -3788,16 +3848,32 @@ studioRemovePhoto.addEventListener("click", function() {
 
     studioReferencePhoto.value = "";
 
+    studioSummaryPhotoType.textContent = "Not selected";
+    studioSummaryPhoto.textContent = "Not provided";
+
     studioPhotoPreview.innerHTML = "";
 
     studioPhotoType.value = "";
 
 });
 
+studioPhotoType.addEventListener("change", function() {
+
+    studioSummaryPhotoType.textContent =
+        this.value || "Not selected";
+
+});
+
+
 function sendStudioDesignToWhatsApp() {
 
     const product =
         document.getElementById("studio-product").value || "Not selected";
+    
+        if (product === "Not selected" || product === "") {
+    alert("Please select a product first.");
+    return;
+    }    
 
     const colour =
         document.getElementById("studio-summary-colour").textContent;
