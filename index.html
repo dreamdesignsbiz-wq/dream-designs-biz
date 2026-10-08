@@ -723,18 +723,37 @@ footer {
 }
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 20px;
     max-width: 1100px;
     margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 5px 18px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-@media (min-width: 769px) {
-    .gallery-grid .gallery-item:last-child {
-        grid-column: 2;
-    }
+.gallery-grid::-webkit-scrollbar {
+    height: 8px;
 }
+
+.gallery-grid::-webkit-scrollbar-track {
+    background: #f9eaf1;
+    border-radius: 10px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+    background: #b85c8a;
+    border-radius: 10px;
+}
+
+.gallery-item {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}
+
 
 .gallery-item {
     background-color: white;
@@ -920,8 +939,23 @@ footer {
 }
 
 .gallery-grid {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 4px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    padding: 8px;
 }
 
 .gallery-item {
@@ -1188,6 +1222,94 @@ nav a {
     border-radius: 15px;
     border: 1px solid rgba(139, 58, 98, 0.08);
 }
+
+/* QUICK VIEW CUSTOMIZATION PANEL */
+
+.quick-view-customization {
+    width: 100%;
+    max-width: 400px;
+    margin: 25px auto 10px;
+    padding: 20px;
+    background: #fff5f8;
+    border: 1px solid rgba(139, 58, 98, 0.12);
+    border-radius: 18px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.quick-view-customization h3 {
+    margin: 0 0 18px;
+    text-align: center;
+    color: #8b3a62;
+    font-size: 20px;
+}
+
+.quick-view-customization label {
+    display: block;
+    margin: 14px 0 6px;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.quick-view-customization input,
+.quick-view-customization textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #d9c2cd;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.quick-view-customization input {
+    min-height: 42px;
+}
+
+.quick-view-customization textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.quick-view-customization input::placeholder,
+.quick-view-customization textarea::placeholder {
+    color: #999;
+}
+
+.quick-view-customization input:focus,
+.quick-view-customization textarea:focus {
+    outline: none;
+    border-color: #b4234d;
+    box-shadow: 0 0 0 3px rgba(180, 35, 77, 0.10);
+}
+
+@media (max-width: 600px) {
+
+    .quick-view-customization {
+        max-width: 100%;
+        padding: 16px;
+        margin-top: 20px;
+    }
+
+    .quick-view-customization h3 {
+        font-size: 19px;
+    }
+
+    .quick-view-customization label {
+        font-size: 14px;
+    }
+
+    .quick-view-customization input,
+    .quick-view-customization textarea {
+        font-size: 15px;
+    }
+
+}
+
 
 .product-customization h4 {
     margin: 0 0 12px;
@@ -1949,12 +2071,22 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     box-shadow: 0 5px 15px rgba(139, 58, 98, 0.12);
 }
 
+.studio-photo-preview img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.studio-photo-preview img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(139, 58, 98, 0.20);
+}
+
 .studio-photo-help {
     max-width: 500px;
     margin: 8px auto 15px;
     text-align: center;
     color: #555;
     line-height: 1.5;
+    font-size: 15px;
 }
 
 .studio-photo-input {
@@ -1962,10 +2094,10 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
     border: 1px dashed #c98aaa;
-    border-radius: 10px;
+    border-radius: 12px;
     background: #fff8fb;
     cursor: pointer;
 }
@@ -1974,6 +2106,13 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     border-color: #b4234d;
     background: #fff;
 }
+
+.studio-photo-input:focus {
+    outline: none;
+    border-color: #b4234d;
+    box-shadow: 0 0 0 3px rgba(180, 35, 77, 0.12);
+}
+
 
 .studio-photo-input::file-selector-button {
     padding: 8px 14px;
@@ -1991,19 +2130,21 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 }
 
 .studio-photo-preview {
-    margin: 18px auto 0;
+    margin: 20px auto 0;
     padding: 10px;
     max-width: 420px;
     border: 1px solid #ead5df;
     border-radius: 15px;
+    overflow: hidden;
     background: #fff;
+    box-shadow: 0 5px 15px rgba(139, 58, 98, 0.10);
 }
 
 .studio-photo-preview img {
     width: 100%;
     max-height: 400px;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 #studio-remove-photo {
@@ -2023,8 +2164,192 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 #studio-remove-photo:hover {
     background: #b4234d;
     color: white;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(180, 35, 77, 0.20);
 }
+
+
+/* =========================================
+   FINAL FASHION GALLERY DESIGN
+   ========================================= */
+
+.gallery {
+    padding: 42px 24px 35px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.gallery h2 {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.gallery > p {
+    max-width: 850px;
+    margin: 0 auto 28px;
+    text-align: center;
+    line-height: 1.65;
+}
+
+/* Horizontal product slider */
+.gallery-grid {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 8px 8px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+/* Desktop scrollbar */
+.gallery-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+    background: #f7e8ef;
+    border-radius: 20px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+    background: #b85c8a;
+    border-radius: 20px;
+}
+
+/* Gallery cards */
+.gallery-grid .gallery-item {
+    flex: 0 0 300px;
+    width: 300px;
+    min-width: 300px;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: #ffffff;
+    border: 1px solid rgba(139, 58, 98, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 7px 20px rgba(139, 58, 98, 0.12);
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+/* Product image area */
+.gallery-grid .gallery-item img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+    background: #faf7f9;
+    border-radius: 14px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Product name */
+.gallery-grid .gallery-item h3 {
+    width: 100%;
+    min-height: 24px;
+    margin: 14px 5px 4px;
+    text-align: center;
+    color: #8b3a62;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+/* Hover */
+.gallery-grid .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(139, 58, 98, 0.18);
+}
+
+.gallery-grid .gallery-item:hover img {
+    transform: scale(1.025);
+}
+
+/* Remove old special last-card image size */
+.gallery-grid .gallery-item:last-child img {
+    height: 300px;
+}
+
+/* =========================================
+   MOBILE GALLERY
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .gallery {
+        margin: 12px;
+        padding: 30px 10px 28px;
+        border-radius: 18px;
+    }
+
+    .gallery h2 {
+        font-size: 27px;
+        margin-bottom: 12px;
+    }
+
+    .gallery > p {
+        padding: 0 8px;
+        margin-bottom: 22px;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .gallery-grid {
+    gap: 14px;
+    padding: 6px 6px 18px;
+    scroll-snap-type: x mandatory;
+    }
+
+    /* Hide scrollbar on mobile */
+    .gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-grid {
+        scrollbar-width: none;
+    }
+
+    .gallery-grid .gallery-item {
+    flex: 0 0 86%;
+    width: 86%;
+    min-width: 86%;
+    padding: 10px;
+    border-radius: 18px;
+    scroll-snap-align: start;
+}
+
+    .gallery-grid .gallery-item img {
+        width: 100%;
+        height: 285px;
+        border-radius: 13px;
+    }
+
+    .gallery-grid .gallery-item h3 {
+        margin: 12px 4px 5px;
+        font-size: 16px;
+        line-height: 1.3;
+    }
+
+    .gallery-grid .gallery-item:last-child img {
+        height: 285px;
+    }
+
+}
+
 
 </style>
 </head>
@@ -2128,37 +2453,37 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 
     <div class="gallery-grid">
 
-        <div class="gallery-item" onclick="openQuickView('Beautiful Designer Saree')">
+        <div class="gallery-item" onclick="document.getElementById('sarees').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/product1.jpg">
     <h3>Designer Saree</h3>
 </div>
 
-        <div class="gallery-item" onclick="openQuickView('Elegant Party Dress')">
+        <div class="gallery-item" onclick="document.getElementById('dresses').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/product2.jpg">
     <h3>Party Dress</h3>
 </div>
 
-        <div class="gallery-item" onclick="openQuickView('Beautiful Designer Lehenga')">
+        <div class="gallery-item" onclick="document.getElementById('lehengas').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/lehenga.jpg">
     <h3>Designer Lehenga</h3>
 </div>
 
-        <div class="gallery-item" onclick="openQuickView('Beautiful Designer Kurtis')">
+        <div class="gallery-item" onclick="document.getElementById('kurtis').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/kurtis.jpg">
     <h3>Designer Kurtis</h3>
 </div>
 
-        <div class="gallery-item" onclick="openQuickView('Elegant Designer Anarkali Dress')">
+       <div class="gallery-item" onclick="document.getElementById('anarkali').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/anarkali.jpg">
     <h3>Anarkali Dress</h3>
 </div>
 
-        <div class="gallery-item" onclick="openQuickView('Elegant Designer Blouse')">
+        <div class="gallery-item" onclick="document.getElementById('blouses').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/designer-blouse.jpeg">
     <h3>Designer Blouse</h3>
 </div>
 
-        <div class="gallery-item" onclick="openQuickView('Saree to Salwar Transformation')">
+        <div class="gallery-item" onclick="document.getElementById('saree-transformation').scrollIntoView({ behavior: 'smooth', block: 'start' });">
     <img src="images/saree-salwar-transformation.jpg">
     <h3>Saree to Salwar Transformation</h3>
 </div>
@@ -2234,6 +2559,324 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 </button>
 
     </div>
+
+
+<!-- DESIGNER SAREE 1 -->
+
+<div class="product" data-category="sarees">
+
+    <button
+        type="button"
+        class="wishlist-button"
+        onclick="toggleWishlist(this)">
+        ♡
+    </button>
+
+    <img
+        src="images/designer saree1.jpg"
+        onclick="openQuickView('Designer Saree 1')">
+
+    <h3>Designer Saree 1</h3>
+
+    <p class="product-description">
+        Beautiful designer saree with elegant detailing.
+        <br>
+        ✨ Custom sizes and measurements available
+        <br>
+        ✨ Custom design options
+        <br>
+        ✨ Custom stitching available
+    </p>
+
+    <div class="product-customization">
+
+        <h4>✨ Customization Options</h4>
+
+        <ul>
+            <li>🎨 Colour preference</li>
+            <li>🧵 Fabric preference (subject to availability)</li>
+            <li>📏 Blouse measurements & fit</li>
+            <li>🔹 Neckline preference</li>
+            <li>👗 Sleeve style & length</li>
+            <li>✨ Back design preference</li>
+            <li>📐 Blouse length preference</li>
+            <li>💗 Special requirements</li>
+        </ul>
+
+    </div>
+
+    <a
+        href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20SAREE%20CUSTOMIZATION%20REQUEST%0A%0A%F0%9F%91%97%20Designer%20Saree%201%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%20would%20like%20to%20customize%20this%20saree.%0A%0A%F0%9F%8E%A8%20Colour%20preference%3A%0A%F0%9F%A7%B5%20Fabric%20preference%3A%0A%F0%9F%93%8F%20Blouse%20measurements%20%26%20fit%3A%0A%F0%9F%94%B9%20Neckline%20preference%3A%0A%F0%9F%91%97%20Sleeve%20style%20%26%20length%3A%0A%E2%9C%A8%20Back%20design%20preference%3A%0A%F0%9F%93%90%20Blouse%20length%20preference%3A%0A%F0%9F%92%97%20Special%20requirements%3A%0A%0APlease%20help%20me%20with%20the%20available%20options%20and%20final%20pricing.%0A%0AThank%20you!"
+        target="_blank">
+
+        <button type="button">
+            Check Details & Customize
+        </button>
+
+    </a>
+
+    <button
+        type="button"
+        class="cart-button"
+        onclick="addToCart('Designer Saree 1')">
+        🛍️ Add to Custom Order
+    </button>
+
+</div>
+
+<!-- DESIGNER SAREE 2 -->
+
+<div class="product" data-category="sarees">
+
+    <button
+        type="button"
+        class="wishlist-button"
+        onclick="toggleWishlist(this)">
+        ♡
+    </button>
+
+    <img
+        src="images/designer saree2.jpg"
+        onclick="openQuickView('Designer Saree 2')">
+
+    <h3>Designer Saree 2</h3>
+
+    <p class="product-description">
+        Beautiful designer saree with elegant detailing.
+        <br>
+        ✨ Custom sizes and measurements available
+        <br>
+        ✨ Custom design options
+        <br>
+        ✨ Custom stitching available
+    </p>
+
+    <div class="product-customization">
+
+        <h4>✨ Customization Options</h4>
+
+        <ul>
+            <li>🎨 Colour preference</li>
+            <li>🧵 Fabric preference (subject to availability)</li>
+            <li>📏 Blouse measurements & fit</li>
+            <li>🔹 Neckline preference</li>
+            <li>👗 Sleeve style & length</li>
+            <li>✨ Back design preference</li>
+            <li>📐 Blouse length preference</li>
+            <li>💗 Special requirements</li>
+        </ul>
+
+    </div>
+
+    <a
+        href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20SAREE%20CUSTOMIZATION%20REQUEST%0A%0A%F0%9F%91%97%20Designer%20Saree%202%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%20would%20like%20to%20customize%20this%20saree.%0A%0A%F0%9F%8E%A8%20Colour%20preference%3A%0A%F0%9F%A7%B5%20Fabric%20preference%3A%0A%F0%9F%93%8F%20Blouse%20measurements%20%26%20fit%3A%0A%F0%9F%94%B9%20Neckline%20preference%3A%0A%F0%9F%91%97%20Sleeve%20style%20%26%20length%3A%0A%E2%9C%A8%20Back%20design%20preference%3A%0A%F0%9F%93%90%20Blouse%20length%20preference%3A%0A%F0%9F%92%97%20Special%20requirements%3A%0A%0APlease%20help%20me%20with%20the%20available%20options%20and%20final%20pricing.%0A%0AThank%20you!"
+        target="_blank">
+
+        <button type="button">
+            Check Details & Customize
+        </button>
+
+    </a>
+
+    <button
+        type="button"
+        class="cart-button"
+        onclick="addToCart('Designer Saree 2')">
+        🛍️ Add to Custom Order
+    </button>
+
+</div>
+
+
+<!-- DESIGNER SAREE 3 -->
+
+<div class="product" data-category="sarees">
+
+    <button
+        type="button"
+        class="wishlist-button"
+        onclick="toggleWishlist(this)">
+        ♡
+    </button>
+
+    <img
+        src="images/designer saree3.jpg"
+        onclick="openQuickView('Designer Saree 3')">
+
+    <h3>Designer Saree 3</h3>
+
+    <p class="product-description">
+        Beautiful designer saree with elegant detailing.
+        <br>
+        ✨ Custom sizes and measurements available
+        <br>
+        ✨ Custom design options
+        <br>
+        ✨ Custom stitching available
+    </p>
+
+    <div class="product-customization">
+
+        <h4>✨ Customization Options</h4>
+
+        <ul>
+            <li>🎨 Colour preference</li>
+            <li>🧵 Fabric preference (subject to availability)</li>
+            <li>📏 Blouse measurements & fit</li>
+            <li>🔹 Neckline preference</li>
+            <li>👗 Sleeve style & length</li>
+            <li>✨ Back design preference</li>
+            <li>📐 Blouse length preference</li>
+            <li>💗 Special requirements</li>
+        </ul>
+
+    </div>
+
+    <a
+        href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20SAREE%20CUSTOMIZATION%20REQUEST%0A%0A%F0%9F%91%97%20Designer%20Saree%203%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%20would%20like%20to%20customize%20this%20saree.%0A%0A%F0%9F%8E%A8%20Colour%20preference%3A%0A%F0%9F%A7%B5%20Fabric%20preference%3A%0A%F0%9F%93%8F%20Blouse%20measurements%20%26%20fit%3A%0A%F0%9F%94%B9%20Neckline%20preference%3A%0A%F0%9F%91%97%20Sleeve%20style%20%26%20length%3A%0A%E2%9C%A8%20Back%20design%20preference%3A%0A%F0%9F%93%90%20Blouse%20length%20preference%3A%0A%F0%9F%92%97%20Special%20requirements%3A%0A%0APlease%20help%20me%20with%20the%20available%20options%20and%20final%20pricing.%0A%0AThank%20you!"
+        target="_blank">
+
+        <button type="button">
+            Check Details & Customize
+        </button>
+
+    </a>
+
+    <button
+        type="button"
+        class="cart-button"
+        onclick="addToCart('Designer Saree 3')">
+        🛍️ Add to Custom Order
+    </button>
+
+</div>
+
+
+<!-- DESIGNER SAREE 4 -->
+
+<div class="product" data-category="sarees">
+
+    <button
+        type="button"
+        class="wishlist-button"
+        onclick="toggleWishlist(this)">
+        ♡
+    </button>
+
+    <img
+        src="images/designer saree4.jpg"
+        onclick="openQuickView('Designer Saree 4')">
+
+    <h3>Designer Saree 4</h3>
+
+    <p class="product-description">
+        Beautiful designer saree with elegant detailing.
+        <br>
+        ✨ Custom sizes and measurements available
+        <br>
+        ✨ Custom design options
+        <br>
+        ✨ Custom stitching available
+    </p>
+
+    <div class="product-customization">
+
+        <h4>✨ Customization Options</h4>
+
+        <ul>
+            <li>🎨 Colour preference</li>
+            <li>🧵 Fabric preference (subject to availability)</li>
+            <li>📏 Blouse measurements & fit</li>
+            <li>🔹 Neckline preference</li>
+            <li>👗 Sleeve style & length</li>
+            <li>✨ Back design preference</li>
+            <li>📐 Blouse length preference</li>
+            <li>💗 Special requirements</li>
+        </ul>
+
+    </div>
+
+    <a
+        href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20SAREE%20CUSTOMIZATION%20REQUEST%0A%0A%F0%9F%91%97%20Designer%20Saree%204%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%20would%20like%20to%20customize%20this%20saree.%0A%0A%F0%9F%8E%A8%20Colour%20preference%3A%0A%F0%9F%A7%B5%20Fabric%20preference%3A%0A%F0%9F%93%8F%20Blouse%20measurements%20%26%20fit%3A%0A%F0%9F%94%B9%20Neckline%20preference%3A%0A%F0%9F%91%97%20Sleeve%20style%20%26%20length%3A%0A%E2%9C%A8%20Back%20design%20preference%3A%0A%F0%9F%93%90%20Blouse%20length%20preference%3A%0A%F0%9F%92%97%20Special%20requirements%3A%0A%0APlease%20help%20me%20with%20the%20available%20options%20and%20final%20pricing.%0A%0AThank%20you!"
+        target="_blank">
+
+        <button type="button">
+            Check Details & Customize
+        </button>
+
+    </a>
+
+    <button
+        type="button"
+        class="cart-button"
+        onclick="addToCart('Designer Saree 4')">
+        🛍️ Add to Custom Order
+    </button>
+
+</div>
+
+<!-- DESIGNER SAREE 5 -->
+
+<div class="product" data-category="sarees">
+
+    <button
+        type="button"
+        class="wishlist-button"
+        onclick="toggleWishlist(this)">
+        ♡
+    </button>
+
+    <img
+        src="images/designer saree5.jpg"
+        onclick="openQuickView('Designer Saree 5')">
+
+    <h3>Designer Saree 5</h3>
+
+    <p class="product-description">
+        Beautiful designer saree with elegant detailing.
+        <br>
+        ✨ Custom sizes and measurements available
+        <br>
+        ✨ Custom design options
+        <br>
+        ✨ Custom stitching available
+    </p>
+
+    <div class="product-customization">
+
+        <h4>✨ Customization Options</h4>
+
+        <ul>
+            <li>🎨 Colour preference</li>
+            <li>🧵 Fabric preference (subject to availability)</li>
+            <li>📏 Blouse measurements & fit</li>
+            <li>🔹 Neckline preference</li>
+            <li>👗 Sleeve style & length</li>
+            <li>✨ Back design preference</li>
+            <li>📐 Blouse length preference</li>
+            <li>💗 Special requirements</li>
+        </ul>
+
+    </div>
+
+    <a
+        href="https://wa.me/919944001959?text=%F0%9F%8C%B8%20SAREE%20CUSTOMIZATION%20REQUEST%0A%0A%F0%9F%91%97%20Designer%20Saree%205%0A%0AHello%20Dream%20Designs%20Biz!%0A%0AI%20would%20like%20to%20customize%20this%20saree.%0A%0A%F0%9F%8E%A8%20Colour%20preference%3A%0A%F0%9F%A7%B5%20Fabric%20preference%3A%0A%F0%9F%93%8F%20Blouse%20measurements%20%26%20fit%3A%0A%F0%9F%94%B9%20Neckline%20preference%3A%0A%F0%9F%91%97%20Sleeve%20style%20%26%20length%3A%0A%E2%9C%A8%20Back%20design%20preference%3A%0A%F0%9F%93%90%20Blouse%20length%20preference%3A%0A%F0%9F%92%97%20Special%20requirements%3A%0A%0APlease%20help%20me%20with%20the%20available%20options%20and%20final%20pricing.%0A%0AThank%20you!"
+        target="_blank">
+
+        <button type="button">
+            Check Details & Customize
+        </button>
+
+    </a>
+
+    <button
+        type="button"
+        class="cart-button"
+        onclick="addToCart('Designer Saree 5')">
+        🛍️ Add to Custom Order
+    </button>
+
+</div>
 
 
     <!-- PARTY DRESS -->
@@ -3097,7 +3740,8 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
             custom sizes and customization options.
         </p>
 
-        
+      
+
         <a
     id="quickViewWhatsApp"
     href="#"
@@ -3106,7 +3750,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     💬 Enquire on WhatsApp
 </a>
 
-    </div>
+
 
 </div>
 
@@ -3513,19 +4157,19 @@ function filterCategory(category) {
 
     products.forEach(function(product) {
 
-        if (category === "all") {
+        if (
+    category === "all" ||
+    product.id === category ||
+    product.dataset.category === category
+) {
 
-            product.style.display = "";
+    product.style.display = "";
 
-        } else if (product.id === category) {
+} else {
 
-            product.style.display = "";
+    product.style.display = "none";
 
-        } else {
-
-            product.style.display = "none";
-
-        }
+}
 
     });
 
@@ -3587,6 +4231,11 @@ function openQuickView(productName) {
 
     const images = {
         "Beautiful Designer Saree": "images/product1.jpg",
+        "Designer Saree 1": "images/designer saree1.jpg",
+        "Designer Saree 2": "images/designer saree2.jpg",
+        "Designer Saree 3": "images/designer saree3.jpg",
+        "Designer Saree 4": "images/designer saree4.jpg",
+        "Designer Saree 5": "images/designer saree5.jpg",
         "Elegant Party Dress": "images/product2.jpg",
         "Beautiful Designer Lehenga": "images/lehenga.jpg",
         "Beautiful Designer Kurtis": "images/kurtis.jpg",
@@ -3605,9 +4254,11 @@ function openQuickView(productName) {
 whatsappButton.href =
     "https://wa.me/919944001959?text=" +
     encodeURIComponent(
-        "Hello Dream Designs Biz! I am interested in: " + productName +
+        "Hello Dream Designs Biz! I am interested in: " +
+        productName +
         ". I would like to know about customization options and final pricing."
     );
+    
 
     const description = document.querySelector(".quick-view-content p");
 
@@ -3854,6 +4505,7 @@ studioRemovePhoto.addEventListener("click", function() {
     studioPhotoPreview.innerHTML = "";
 
     studioPhotoType.value = "";
+    studioRemovePhoto.style.display = "none";
 
 });
 
