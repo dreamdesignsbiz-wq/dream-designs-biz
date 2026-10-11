@@ -1205,6 +1205,7 @@ nav a {
 
 .quick-view-close {
     position: absolute;
+    z-index: 10;
     top: 10px;
     right: 15px;
     background: none !important;
@@ -2351,6 +2352,357 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 }
 
 
+
+/* Dream Designs Biz - Mobile Quick View Gallery Fix */
+@media (max-width: 600px) {
+    .quick-view {
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quick-view-content {
+        width: 100%;
+        max-width: 420px;
+        max-height: 88dvh;
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding: 16px 12px;
+        border-radius: 20px;
+    }
+
+    .quick-view-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 48dvh;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .quick-view-gallery {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        width: 38px;
+        height: 38px;
+        border: none;
+        border-radius: 50%;
+        background: #963b68;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .gallery-prev {
+        left: 8px;
+    }
+
+    .gallery-next {
+        right: 8px;
+    }
+
+    .quick-view-thumbnails {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+    }
+
+    .quick-view-thumbnails img {
+        width: 48px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .quick-view-thumbnails img.active {
+        border-color: #963b68;
+    }
+
+    #galleryCounter {
+        margin: 6px 0;
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+
+
+/* Product-specific gallery layout */
+.quick-view-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.quick-view-image {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    max-height: 55vh;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.quick-view-thumbnails {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px auto;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.quick-view-thumbnails img {
+    width: 52px;
+    height: 64px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.quick-view-thumbnails img.active {
+    border-color: #963b68;
+}
+
+@media (min-width: 700px) {
+    .quick-view-gallery {
+        max-width: 560px;
+    }
+
+    .quick-view-image {
+        max-width: 420px;
+        max-height: 65vh;
+    }
+}
+
+
+
+/* Amazon-style gallery on desktop */
+@media (min-width: 700px) {
+    .quick-view-gallery {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .quick-view-thumbnails {
+        display: flex;
+        flex-direction: column;
+        max-height: 65vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .quick-view-thumbnails img {
+        width: 65px;
+        height: 85px;
+    }
+}
+
+/* Highlight the selected thumbnail */
+.quick-view-thumbnails img.active {
+    border-color: #963b68;
+    box-shadow: 0 0 0 1px #963b68;
+}
+
+
+/* Main image with thumbnails beside it */
+.quick-view-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+@media (min-width: 700px) {
+    .quick-view-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 14px;
+    }
+
+   
+
+
+.quick-view-layout .quick-view-thumbnails {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 54px;
+    width: 54px;
+    height: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    gap: 7px;
+    margin: 0;
+    padding: 2px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+
+
+
+#quickView {
+    overscroll-behavior: contain;
+}
+
+#quickView .quick-view-content {
+    overscroll-behavior: contain;
+}
+
+#quickView .quick-view-layout .quick-view-thumbnails img {
+    flex-shrink: 0;
+}
+
+
+
+    .quick-view-layout .quick-view-gallery {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .quick-view-layout .quick-view-image {
+        width: 100%;
+        max-width: 420px;
+        max-height: 65vh;
+        object-fit: contain;
+    }
+}
+
+.quick-view-layout .quick-view-thumbnails img.active {
+    border-color: #963b68;
+    box-shadow: 0 0 0 1px #963b68;
+}
+
+
+
+/* Mobile Quick View gallery fix */
+@media (max-width: 699px) {
+    .quick-view-content {
+        max-height: 92vh;
+        overflow-y: auto;
+        padding: 18px 12px;
+        box-sizing: border-box;
+    }
+
+    .quick-view-layout {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+
+    
+
+.quick-view-layout .quick-view-thumbnails {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 54px;
+    width: 54px;
+    height: 45vh;
+    min-height: 0;
+    max-height: 45vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    gap: 7px;
+    margin: 0;
+    padding: 2px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+
+
+    
+    .quick-view-layout .quick-view-thumbnails img {
+        width: 48px;
+        height: 62px;
+        min-height: 62px;
+        flex: 0 0 62px;
+        object-fit: cover;
+    }
+
+
+    .quick-view-layout .quick-view-gallery {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+    }
+
+    .quick-view-layout .quick-view-image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 45vh;
+        object-fit: contain;
+    }
+
+    #galleryCounter {
+        text-align: center;
+        margin: 8px 0;
+    }
+}
+
+
+
+/* Selected product thumbnail */
+.quick-view-thumbnails img {
+    opacity: 0.78;
+    transition: opacity 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.quick-view-thumbnails img:hover {
+    opacity: 1;
+    transform: scale(1.04);
+}
+
+.quick-view-thumbnails img.active {
+    opacity: 1;
+    border: 2px solid #963b68;
+    box-shadow: 0 0 0 2px rgba(150, 59, 104, 0.2);
+}
+
+
+/* Smooth main image transition */
+.quick-view-image {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+
+
+
 </style>
 </head>
 
@@ -2394,7 +2746,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     </div>
 
     <div class="hero-visual">
-        <img src="images/product1.jpg" alt="Elegant Indian fashion from Dream Designs Biz">
+        <img src="images/Sarees/product1.jpg" alt="Elegant Indian fashion from Dream Designs Biz">
         <div class="hero-image-caption">Made with love, styled for you</div>
     </div>
 </section>
@@ -2454,32 +2806,32 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     <div class="gallery-grid">
 
         <div class="gallery-item" onclick="document.getElementById('sarees').scrollIntoView({ behavior: 'smooth', block: 'start' });">
-    <img src="images/product1.jpg">
+    <img src="images/Sarees/product1.jpg">
     <h3>Designer Saree</h3>
 </div>
 
         <div class="gallery-item" onclick="document.getElementById('dresses').scrollIntoView({ behavior: 'smooth', block: 'start' });">
-    <img src="images/product2.jpg">
+    <img src="images/Party_Wear/product2.jpg">
     <h3>Party Dress</h3>
 </div>
 
         <div class="gallery-item" onclick="document.getElementById('lehengas').scrollIntoView({ behavior: 'smooth', block: 'start' });">
-    <img src="images/lehenga.jpg">
+    <img src="images/Lehengas/lehenga.jpg">
     <h3>Designer Lehenga</h3>
 </div>
 
         <div class="gallery-item" onclick="document.getElementById('kurtis').scrollIntoView({ behavior: 'smooth', block: 'start' });">
-    <img src="images/kurtis.jpg">
+    <img src="images/Kurtis/kurtis.jpg">
     <h3>Designer Kurtis</h3>
 </div>
 
        <div class="gallery-item" onclick="document.getElementById('anarkali').scrollIntoView({ behavior: 'smooth', block: 'start' });">
-    <img src="images/anarkali.jpg">
+    <img src="images/Anarkali/anarkali.jpg">
     <h3>Anarkali Dress</h3>
 </div>
 
         <div class="gallery-item" onclick="document.getElementById('blouses').scrollIntoView({ behavior: 'smooth', block: 'start' });">
-    <img src="images/designer-blouse.jpeg">
+    <img src="images/Blouses/designer-blouse.jpeg">
     <h3>Designer Blouse</h3>
 </div>
 
@@ -2507,7 +2859,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 
 
         <img
-    src="images/product1.jpg"
+    src="images/Sarees/product1.jpg"
     onclick="openQuickView('Beautiful Designer Saree')">
         <h3>Beautiful Designer Saree</h3>
 
@@ -2573,7 +2925,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     </button>
 
     <img
-        src="images/designer saree1.jpg"
+        src="images/Sarees/designer saree1.jpg"
         onclick="openQuickView('Designer Saree 1')">
 
     <h3>Designer Saree 1</h3>
@@ -2636,7 +2988,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     </button>
 
     <img
-        src="images/designer saree2.jpg"
+        src="images/Sarees/designer saree2.jpg"
         onclick="openQuickView('Designer Saree 2')">
 
     <h3>Designer Saree 2</h3>
@@ -2700,7 +3052,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     </button>
 
     <img
-        src="images/designer saree3.jpg"
+        src="images/Sarees/designer saree3.jpg"
         onclick="openQuickView('Designer Saree 3')">
 
     <h3>Designer Saree 3</h3>
@@ -2764,7 +3116,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     </button>
 
     <img
-        src="images/designer saree4.jpg"
+        src="images/Sarees/designer saree4.jpg"
         onclick="openQuickView('Designer Saree 4')">
 
     <h3>Designer Saree 4</h3>
@@ -2827,7 +3179,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
     </button>
 
     <img
-        src="images/designer saree5.jpg"
+        src="images/Sarees/designer saree5.jpg"
         onclick="openQuickView('Designer Saree 5')">
 
     <h3>Designer Saree 5</h3>
@@ -2891,7 +3243,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 </button>
 
         <img
-    src="images/product2.jpg"
+    src="images/Party_Wear/product2.jpg"
     onclick="openQuickView('Elegant Party Dress')">
 
         <h3>Elegant Party Dress</h3>
@@ -2955,7 +3307,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 </button>
 
         <img
-    src="images/lehenga.jpg"
+    src="images/Lehengas/lehenga.jpg"
     onclick="openQuickView('Beautiful Designer Lehenga')">
 
         <h3>Beautiful Designer Lehenga</h3>
@@ -3021,7 +3373,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 </button>
 
         <img
-    src="images/kurtis.jpg"
+    src="images/Kurtis/kurtis.jpg"
     onclick="openQuickView('Beautiful Designer Kurtis')">
 
         <h3>Beautiful Designer Kurtis</h3>
@@ -3081,7 +3433,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 </button>
 
         <img
-    src="images/anarkali.jpg"
+    src="images/Anarkali/anarkali.jpg"
     onclick="openQuickView('Elegant Designer Anarkali Dress')">
 
         <h3>Elegant Designer Anarkali Dress</h3>
@@ -3145,7 +3497,7 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 
 
     <img
-    src="images/designer-blouse.jpeg"
+    src="images/Blouses/designer-blouse.jpeg"
     onclick="openQuickView('Elegant Designer Blouse')">
 
     <h3>Elegant Designer Blouse</h3>
@@ -3726,14 +4078,34 @@ linear-gradient(120deg, #fffaf7 0%, #fff1ec 50%, #fde5df 100%);
 
     <div class="quick-view-content">
 
-        <button
-            type="button"
-            class="quick-view-close"
-            onclick="closeQuickView()">
-            ×
-        </button>
+        
+<button
+    type="button"
+    class="quick-view-close"
+    aria-label="Close product gallery"
+    onclick="closeQuickView()">
+    &times;
+</button>
 
-        <h2 id="quickViewTitle"></h2>
+
+
+<div class="quick-view-layout">
+    <div id="quickViewThumbnails" class="quick-view-thumbnails"></div>
+
+    <div class="quick-view-gallery">
+        <img id="quickViewImage"
+             src="images/Sarees/designer saree1.jpg"
+             alt="Designer Saree"
+             class="quick-view-image">
+    </div>
+</div>
+
+<p id="galleryCounter">1 / 1</p>
+
+
+
+<h2 id="quickViewTitle"></h2>
+
 
         <p>
             Beautiful designer fashion with
@@ -4229,18 +4601,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function openQuickView(productName) {
 
+
     const images = {
-        "Beautiful Designer Saree": "images/product1.jpg",
-        "Designer Saree 1": "images/designer saree1.jpg",
-        "Designer Saree 2": "images/designer saree2.jpg",
-        "Designer Saree 3": "images/designer saree3.jpg",
-        "Designer Saree 4": "images/designer saree4.jpg",
-        "Designer Saree 5": "images/designer saree5.jpg",
-        "Elegant Party Dress": "images/product2.jpg",
-        "Beautiful Designer Lehenga": "images/lehenga.jpg",
-        "Beautiful Designer Kurtis": "images/kurtis.jpg",
-        "Elegant Designer Anarkali Dress": "images/anarkali.jpg",
-        "Elegant Designer Blouse": "images/designer-blouse.jpeg",
+        "Beautiful Designer Saree": "images/Sarees/product1.jpg",
+        "Designer Saree 1": "images/Sarees/designer saree1.jpg",
+        "Designer Saree 2": "images/Sarees/designer saree2.jpg",
+        "Designer Saree 3": "images/Sarees/designer saree3.jpg",
+        "Designer Saree 4": "images/Sarees/designer saree4.jpg",
+        "Designer Saree 5": "images/Sarees/designer saree5.jpg",
+        "Elegant Party Dress": "images/Party_Wear/product2.jpg",
+        "Beautiful Designer Lehenga": "images/Lehengas/lehenga.jpg",
+        "Beautiful Designer Kurtis": "images/Kurtis/kurtis.jpg",
+        "Elegant Designer Anarkali Dress": "images/Anarkali/anarkali.jpg",
+        "Elegant Designer Blouse": "images/Blouses/designer-blouse.jpeg",
         "Saree to Salwar Transformation": "images/saree-salwar-transformation.jpg"
     };
 
@@ -4305,17 +4678,202 @@ if (productName === "Saree to Salwar Transformation") {
         title.before(image);
     }
 
-    image.src = images[productName] || "";
-    image.alt = productName;
+    
+image.src = images[productName] || "";
+image.alt = productName;
 
-    document.getElementById("quickView").style.display = "flex";
+loadProductGallery(productName);
+
+
+const quickView = document.getElementById("quickView");
+
+document.body.style.overflow = "hidden";
+document.body.style.overscrollBehavior = "none";
+quickView.style.overscrollBehavior = "contain";
+quickView.style.display = "flex";
+
 
 }
 
+
+
+const productGalleries = {
+
+   
+"Beautiful Designer Saree": [
+    "images/Sarees/Beautiful_Designer_Saree_01_Front_View.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_02_Three_Quarter_View.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_03_Side_View.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_04_Back_View.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_05_Mirror_View.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_06_Jewelry_Portrait.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_07_Blouse_Back_Detail.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_08_Gold_Border_Detail.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_09_Zari_Motif_Detail.jpg",
+    "images/Sarees/Beautiful_Designer_Saree_10_Pleats_and_Hem_Detail.jpg"
+],
+
+    
+"Designer Saree 1": [
+    "images/Sarees/designer saree1.jpg",
+    "images/Sarees/designer-saree1-front-view.jpg",
+    "images/Sarees/designer-saree1-side-view.jpg",
+    "images/Sarees/designer-saree1-back-view.jpg",
+    "images/Sarees/designer-saree1-blouse-detail.jpg",
+    "images/Sarees/designer-saree1-full-length.jpg",
+    "images/Sarees/designer-saree1-blouse-detail.jpg",
+    "images/Sarees/designer-saree1-border-detail.jpg",
+    "images/Sarees/designer-saree1-fabric-texture.jpg",
+    "images/Sarees/designer-saree1-pallu-detail.jpg"
+],
+
+    
+"Designer Saree 2": [
+    "images/Sarees/01_Front_View.jpg",
+    "images/Sarees/02_Side_View.jpg",
+    "images/Sarees/03_Back_View.jpg",
+    "images/Sarees/04_Full_Length_View.jpg",
+    "images/Sarees/05_Pallu_View.jpg",
+    "images/Sarees/06_Blouse_Front_Detail.jpg",
+    "images/Sarees/07_Blouse_Back_Detail.jpg",
+    "images/Sarees/08_Border_Detail.jpg",
+    "images/Sarees/09_Embroidery_Detail.jpg",
+    "images/Sarees/10_Fabric_Pleats_Detail.jpg"
+],
+
+    
+    "Designer Saree 3": [
+        "images/Sarees/designer saree3.jpg",
+        "images/Sarees/designer-saree3-front.jpg",
+        "images/Sarees/designer-saree3-side-view.jpg",
+        "images/Sarees/designer-saree3-back-view.jpg",
+        "images/Sarees/designer-saree3-drape-detail.jpg",
+        "images/Sarees/designer-saree3-blouse-detail.jpg",
+        "images/Sarees/designer-saree3-border-detail.jpg",
+        "images/Sarees/designer-saree3-fabric-detail.jpg",
+        "images/Sarees/designer-saree3-pallu-detail.jpg"
+    ],
+
+    
+"Designer Saree 4": [
+    "images/Sarees/Designer_Saree_4_01_Front_View.jpg",
+    "images/Sarees/Designer_Saree_4_02_Three_Quarter_View.jpg",
+    "images/Sarees/Designer_Saree_4_03_Side_View.jpg",
+    "images/Sarees/Designer_Saree_4_04_Back_View.jpg",
+    "images/Sarees/Designer_Saree_4_05_Full_Length_View.jpg",
+    "images/Sarees/Designer_Saree_4_06_Blouse_Neckline_Detail.jpg",
+    "images/Sarees/Designer_Saree_4_07_Sleeve_Embroidery_Detail.jpg",
+    "images/Sarees/Designer_Saree_4_08_Pallu_Border_Detail.jpg",
+    "images/Sarees/Designer_Saree_4_09_Embroidery_Beadwork_Detail.jpg",
+    "images/Sarees/Designer_Saree_4_10_Fabric_Pleats_Detail.jpg"
+],
+
+
+    
+"Designer Saree 5": [
+    "images/Sarees/Designer_Saree_5_01_Front_View.jpg",
+    "images/Sarees/Designer_Saree_5_02_Three_Quarter_View.jpg",
+    "images/Sarees/Designer_Saree_5_03_Side_View.jpg",
+    "images/Sarees/Designer_Saree_5_04_Back_View.jpg",
+    "images/Sarees/Designer_Saree_5_05_Full_Length_View.jpg",
+    "images/Sarees/Designer_Saree_5_06_Neckline_Detail.jpg",
+    "images/Sarees/Designer_Saree_5_07_Blouse_Embroidery_Detail.jpg",
+    "images/Sarees/Designer_Saree_5_08_Pallu_Border_Detail.jpg",
+    "images/Sarees/Designer_Saree_5_09_Pearl_Beadwork_Detail.jpg",
+    "images/Sarees/Designer_Saree_5_10_Fabric_Pleats_Detail.jpg"
+],
+
+
+};
+
+function loadProductGallery(productName) {
+    const photos = productGalleries[productName] || [];
+    const mainImage = document.getElementById("quickViewImage");
+    const counter = document.getElementById("galleryCounter");
+    const thumbnails = document.getElementById("quickViewThumbnails");
+
+    if (!mainImage || !counter || !thumbnails) return;
+
+    thumbnails.innerHTML = "";
+
+   
+thumbnails.style.height = "300px";
+thumbnails.style.minHeight = "0";
+thumbnails.style.maxHeight = "300px";
+thumbnails.style.overflowY = "auto";
+thumbnails.style.overflowX = "hidden";
+thumbnails.style.display = "flex";
+thumbnails.style.flexDirection = "column";
+thumbnails.style.flexWrap = "nowrap";
+thumbnails.style.justifyContent = "flex-start";
+thumbnails.style.alignContent = "flex-start";
+thumbnails.style.flexShrink = "0";
+thumbnails.style.alignSelf = "flex-start";
+thumbnails.style.touchAction = "pan-y";
+thumbnails.style.webkitOverflowScrolling = "touch";
+thumbnails.style.overscrollBehaviorY = "contain";
+
+thumbnails.onwheel = function (event) {
+    if (thumbnails.scrollHeight > thumbnails.clientHeight) {
+        event.preventDefault();
+        thumbnails.scrollTop += event.deltaY;
+    }
+};
+
+
+
+requestAnimationFrame(function () {
+    console.log(
+        "Thumbnail height:",
+        thumbnails.clientHeight,
+        "Content height:",
+        thumbnails.scrollHeight
+    );
+});
+
+
+
+    mainImage.onerror = function () {
+    console.error("Failed to load gallery image:", mainImage.src);
+};
+    mainImage.src = photos[0] || "";
+    mainImage.alt = productName;
+
+    counter.textContent = photos.length ? "1 / " + photos.length : "0 / 0";
+
+    photos.forEach((photo, index) => {
+        const thumb = document.createElement("img");
+
+        thumb.style.flexShrink = "0";
+        thumb.style.display = "block";
+        thumb.style.position = "static";
+        thumb.style.width = "48px";
+        thumb.style.height = "62px";
+        thumb.style.objectFit = "cover";
+
+        thumb.src = photo;
+        thumb.alt = productName + " view " + (index + 1);
+
+        thumb.addEventListener("click", function () {
+            mainImage.src = photo;
+            counter.textContent = (index + 1) + " / " + photos.length;
+        });
+
+        thumbnails.appendChild(thumb);
+
+    });
+}
+
+
 function closeQuickView() {
+    const popup = document.getElementById("quickView");
 
-    document.getElementById("quickView").style.display = "none";
+    if (popup) {
+        popup.style.display = "none";
+    }
 
+    document.body.style.overflow = "";
+    document.body.style.overscrollBehavior = "";
 }
 
 // Highlight the current header navigation link
