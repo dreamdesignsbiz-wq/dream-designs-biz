@@ -384,27 +384,42 @@ nav a:hover {
     transform: scale(0.97);
 }
 
+
 .about {
     display: block;
     width: calc(100% - 40px);
     max-width: 100%;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #ffffff, #fff5f8);
-    padding: 40px 25px;
-    margin: 20px auto;
+    
+background:
+    linear-gradient(
+        rgba(255, 247, 245, 0.10),
+        rgba(255, 240, 242, 0.10)
+    ),
+    url("images/about-boutique-background.png") center / cover no-repeat;
+
+    padding: 44px 30px;
+    margin: 24px auto;
+    border: 1px solid rgba(190, 145, 75, 0.42);
+    border-radius: 26px;
+    box-shadow:
+        0 8px 28px rgba(101, 28, 56, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
+
 .about h2 {
-    color: #8b3a62;
+    color: #351018;
     font-size: 32px;
     margin-bottom: 18px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .about p {
     font-size: 18px;
     line-height: 1.7;
-    color: #555;
+    color: #493238;
+    font-weight: 500;
 }
 
 .products {
@@ -702,20 +717,41 @@ footer {
     text-align: center;
     font-size: 15px;
 }
+
 .gallery {
-    background: linear-gradient(135deg, #ffffff, #fff5f8);
+
+background:
+    linear-gradient(
+        to bottom,
+        rgba(255, 247, 245, 0.68) 0%,
+        rgba(255, 240, 242, 0.48) 55%,
+        rgba(255, 240, 242, 0.12) 100%
+    ),
+    
+        url("images/royal-fashion-background.png")
+        right center / cover no-repeat;
+
+
     padding: 45px 20px;
     margin: 20px;
     border-radius: 20px;
     box-shadow: 0 6px 20px rgba(139,58,98,0.10);
     border: 1px solid rgba(139,58,98,0.08);
+
+    background-position: center center;
+    background-attachment: scroll;
+
+
 }
 
+
 .gallery h2 {
-    color: #8b3a62;
+    color: #351018;
     font-size: 32px;
     margin-bottom: 10px;
+    font-weight: 800;
 }
+
 
 .gallery > p {
     color: #666;
@@ -725,18 +761,16 @@ footer {
     line-height: 1.6;
 }
 
-.gallery-grid {
-    display: flex;
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px 5px 18px;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+
+.gallery > p {
+    color: #351018;
+    font-size: 17px;
+    font-weight: 700;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
+
 
 .gallery-grid::-webkit-scrollbar {
     height: 8px;
@@ -1487,13 +1521,64 @@ header {
     min-height: 170px;
     padding: 18px clamp(24px, 4.8vw, 82px);
     color: #381a20;
-    background:
-        radial-gradient(ellipse at top, rgba(255, 255, 255, 0.98), transparent 70%),
-        linear-gradient(135deg, #fffaf5 0%, #f9e9e9 55%, #fff8ef 100%);
+    
+background:
+    radial-gradient(
+        ellipse at top,
+        rgba(255, 255, 255, 1),
+        transparent 72%
+    ),
+    linear-gradient(
+        135deg,
+        #fffaf5 0%,
+        #f9e9e9 55%,
+        #fff8f2 100%
+    );
+
     border-bottom: 1px solid rgba(190, 151, 91, 0.42);
     box-shadow: 0 8px 24px rgba(101, 28, 56, 0.07);
     z-index: 1000;
 }
+
+
+
+/* Delicate floral decoration for luxury header */
+.site-header {
+    isolation: isolate;
+}
+
+.site-header::before,
+.site-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 110px;
+    height: 100%;
+    background-image: url("images/luxury-hero-background.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.site-header::before {
+    left: 0;
+    background-position: left center;
+}
+
+.site-header::after {
+    right: 0;
+    background-position: right center;
+    transform: scaleX(-1);
+}
+
+/* Keep logo and navigation above the decoration */
+.site-header > * {
+    position: relative;
+    z-index: 1;
+}
+
 
 .site-header .brand-logo { grid-column: 2; grid-row: 1; z-index: 2; }
 
@@ -1514,31 +1599,50 @@ header {
     gap: clamp(14px, 2.1vw, 34px);
     min-width: 0;
 }
-.main-nav-left { grid-column: 1; grid-row: 1; justify-content: flex-start; }
+
+
+
+.main-nav-left {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
 .header-actions { grid-column: 3; grid-row: 1; justify-content: flex-end; }
 .site-header nav { position: static; padding: 0; background: transparent; box-shadow: none; z-index: auto; }
 
+
+
 .site-header a:not(.brand-logo) {
     margin: 0;
-    color: #382126;
+    color: #100508;
     text-decoration: none;
     font-size: clamp(14px, 1.2vw, 19px);
-    font-weight: 600;
+    font-weight: 800;
     white-space: nowrap;
     transition: color 0.25s ease;
     text-underline-offset: 5px;
-
+    -webkit-font-smoothing: antialiased;
 }
+
 
 
 .site-header .main-nav a:not(.brand-logo):hover,
 .site-header .header-actions a:hover {
-    color: #a77b36;
+    color: #8b173f;
     transition: color 0.25s ease;
 }
 
 
-.site-header .main-nav a.active { color: #a51e50; border-bottom: 2px solid #a51e50; padding-bottom: 9px; }
+.site-header .main-nav a.active { 
+    color: #100508;
+    border-bottom: 2px solid #a51e50; 
+    padding-bottom: 9px; 
+}
+
 .site-header .header-cart { font-size: 27px !important; color: #8b2148 !important; }
 .site-header .header-whatsapp {
     display: inline-flex;
@@ -1762,7 +1866,13 @@ background:
     .site-header { grid-template-columns: 1fr; gap: 12px; padding: 15px 22px; }
     .site-header .brand-logo { grid-column: 1; grid-row: 1; }
     .site-header .brand-logo img { width: min(320px, 72vw); }
-    .main-nav-left { grid-column: 1; grid-row: 2; justify-content: center; flex-wrap: wrap; }
+    
+    .main-nav-left { 
+        grid-column: 1; 
+        grid-row: 2; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
     .header-actions { grid-column: 1; grid-row: 3; justify-content: center; flex-wrap: wrap; }
     .hero { padding: 38px 28px; gap: 20px; }
     .hero-collections { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
@@ -1770,9 +1880,23 @@ background:
     .hero-collections a:nth-child(3) { padding-left: 0; }
 }
 @media (max-width: 650px) {
-    .site-header { min-height: 0; padding: 12px 12px 16px; gap: 12px; }
+    .site-header { 
+        min-height: 0; 
+        padding: 8px 12px 12px;
+        gap: 16px;
+        overflow: visible;
+     }
     .site-header .brand-logo img { width: min(260px, 76vw); }
-    .main-nav-left { gap: 17px; }
+    
+    .main-nav-left {
+    gap: 17px;
+    background: rgba(255, 248, 243, 0.98);
+    border: 1px solid rgba(165, 30, 80, 0.08);
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 2px 8px rgba(101, 28, 56, 0.03);
+}
+
     .site-header a:not(.brand-logo) { font-size: 14px; }
     .header-actions { gap: 18px; }
     .site-header .header-whatsapp { padding: 11px 16px; font-size: 13px !important; }
@@ -1923,8 +2047,8 @@ background:
         
     linear-gradient(
         135deg,
-        rgba(255, 248, 246, 0.18),
-        rgba(255, 238, 239, 0.18)
+       rgba(255, 248, 246, 0.20),
+       rgba(255, 238, 239, 0.20)
     ),
 
         url("images/luxury-hero-background-mobile.png");
