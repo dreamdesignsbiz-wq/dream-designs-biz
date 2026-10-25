@@ -4005,6 +4005,47 @@ background:
 }
 
 
+/* DREAM DESIGNS BIZ — RUNWAY SLOGAN */
+#runway-intro .runway-slogan {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 12%;
+  z-index: 5;
+  text-align: center;
+  color: #fff4df;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(218, 180, 105, 0.35);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  pointer-events: none;
+}
+
+#runway-intro .runway-slide.active .runway-slogan {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  #runway-intro .runway-slogan {
+    bottom: 14%;
+    font-size: 19px;
+    letter-spacing: 1.2px;
+    padding: 0 8px;
+  }
+}
+
+
+
 </style>
 </head>
 
@@ -4022,44 +4063,114 @@ background:
     fetchpriority="high"
     decoding="async"
     >
+    <div class="runway-slogan">
+  REDEFINING BRIDAL ROYALTY
+    </div>
   </div>
 
-  <div class="runway-slide">
-    <img
+  
+<div class="runway-slide">
+  <img
     src="images/INTRO/Blue gown.jpg"
     alt="Blue designer gown"
     decoding="async"
-    >
+  >
+
+  <div class="runway-slogan">
+    GRACE IN EVERY SHADE OF BLUE
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Gold bridal look.jpg" alt="Gold bridal look">
+  <img
+    src="images/INTRO/Gold bridal look.jpg"
+    alt="Gold bridal look"
+    decoding="async"
+  >
+
+  <div class="runway-slogan">
+    GOLDEN GLOW, BRIDAL SOUL
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Red saree.jpg" alt="Red designer saree">
+  <img
+    src="images/INTRO/Red saree.jpg"
+    alt="Red designer saree"
+    decoding="async"
+  >
+
+  <div class="runway-slogan">
+    DRAPED IN DESTINY
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Bridal portrait.png" alt="Bridal portrait">
+  <img
+    src="images/INTRO/Bridal portrait.png"
+    alt="Bridal portrait"
+    decoding="async"
+  >
+
+  <div class="runway-slogan">
+    THE FACE OF FOREVER
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Gold gown.jpg" alt="Gold designer gown">
+  <img
+    src="images/INTRO/Gold gown.jpg"
+    alt="Gold designer gown"
+    decoding="async"
+  >
+
+  <div class="runway-slogan">
+    ROYALTY WOVEN IN GOLD
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Half Saree.png" alt="Traditional half saree">
+  <img
+    src="images/INTRO/Half Saree.png"
+    alt="Traditional half saree"
+    decoding="async"
+  >
+
+  <div class="runway-slogan">
+    TRADITION, REIMAGINED
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Red bridal look.jpg" alt="Red bridal collection">
+  <img
+    src="images/INTRO/Red bridal look.jpg"
+    alt="Red bridal collection"
+    decoding="async"
+  >
+
+  <div class="runway-slogan">
+    SCARLET DREAMS, BRIDAL REALITY
   </div>
+</div>
+
 
   <div class="runway-slide">
-    <img src="images/INTRO/Red lehenga1.png" alt="Designer lehenga">
-  </div>
+  <img
+    src="images/INTRO/Red lehenga1.png"
+    alt="Designer lehenga"
+    decoding="async"
+  >
 
+  <div class="runway-slogan">
+    REDEFINING BRIDAL ROYALTY
+  </div>
+</div>
   <div class="runway-light" id="runway-light"></div>
 </div>
 
