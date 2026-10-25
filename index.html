@@ -6922,21 +6922,8 @@ document.addEventListener("DOMContentLoaded", function () {
   void progress.offsetWidth;
   progress.classList.add("running");
 
-  const firstImage = slides[0]?.querySelector("img");
-
-showSlide(0);
-
-if (firstImage && !firstImage.complete) {
-  firstImage.addEventListener("load", () => {
-    if (!finished) {
-      timer = setTimeout(nextSlide, durations[0]);
-    }
-  }, { once: true });
-
-  firstImage.addEventListener("error", finishIntro, { once: true });
-} else {
-  timer = setTimeout(nextSlide, durations[0]);
-}
+ showSlide(0);
+timer = setTimeout(nextSlide, durations[0]);
 
 
   if (skip) {
