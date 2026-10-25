@@ -3710,7 +3710,6 @@ background:
 
 
 
-
 /* DREAM DESIGNS BIZ — CINEMATIC FASHION INTRO */
 #runway-intro {
   position: fixed;
@@ -6864,7 +6863,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const progress = document.getElementById("runway-progress-fill");
   const skip = document.getElementById("runway-skip");
 
-  const durations = [3800, 1700, 1700, 1700, 1700, 1700, 2800];
+ const durations = [
+  2500,  // Red lehenga
+  2500,  // Blue gown
+  2500,  // Gold bridal look
+  2500,  // Red saree
+  2500,  // Bridal portrait
+  2500,  // Gold gown
+  2500,  // Half saree
+  2500,  // Red bridal look
+  3000   // Red lehenga 1
+];
 
   let current = 0;
   let timer;
@@ -6913,8 +6922,22 @@ document.addEventListener("DOMContentLoaded", function () {
   void progress.offsetWidth;
   progress.classList.add("running");
 
-  showSlide(0);
+  const firstImage = slides[0]?.querySelector("img");
+
+showSlide(0);
+
+if (firstImage && !firstImage.complete) {
+  firstImage.addEventListener("load", () => {
+    if (!finished) {
+      timer = setTimeout(nextSlide, durations[0]);
+    }
+  }, { once: true });
+
+  firstImage.addEventListener("error", finishIntro, { once: true });
+} else {
   timer = setTimeout(nextSlide, durations[0]);
+}
+
 
   if (skip) {
     skip.addEventListener("click", finishIntro);
