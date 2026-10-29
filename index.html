@@ -4347,10 +4347,10 @@ background:
         <img
     src="images/Sarees/product1.jpg"
     onclick="openQuickView('Beautiful Designer Saree')">
-        <h3>Beautiful Designer Saree</h3>
+        <h3>Royal Elegance Designer Saree</h3>
 
         <p class="product-description"> 
-    Elegant designer saree with beautiful detailing. 
+   A graceful saree featuring elegant detailing for festive celebrations and special occasions.
     <br> 
     ✨ Custom sizes and measurements available 
     <br> 
@@ -4735,7 +4735,7 @@ background:
         <h3>Elegant Party Dress</h3>
 
         <p class="product-description">
-            Elegant party dress for special occasions.
+            Make every celebration special with an elegant party dress tailored to your style.
             <br>
             ✨ Custom sizes available
             <br>
@@ -4799,7 +4799,7 @@ background:
         <h3>Beautiful Designer Lehenga</h3>
 
         <p class="product-description">
-            Beautiful designer lehenga for weddings and celebrations.
+           Make a grand entrance with an elegant lehenga designed for weddings, festive occasions, and unforgettable celebrations.
             <br>
             ✨ Custom sizes available
             <br>
@@ -4865,7 +4865,7 @@ background:
         <h3>Beautiful Designer Kurtis</h3>
 
         <p class="product-description">
-            Stylish designer kurtis for everyday and special occasions.
+           Discover versatile ethnic kurtis with elegant detailing, perfect for everyday style, festive gatherings, and special occasions.
             <br>
             ✨ Custom sizes available
             <br>
@@ -4925,8 +4925,7 @@ background:
         <h3>Elegant Designer Anarkali Dress</h3>
 
         <p class="product-description">
-            Beautiful designer Anarkali dress for weddings,
-            parties, and special occasions.
+            Elegant Anarkali styling with a graceful silhouette, perfect for weddings, festive gatherings, and special celebrations.
             <br>
             ✨ Custom sizes available
             <br>
@@ -4989,13 +4988,17 @@ background:
     <h3>Elegant Designer Blouse</h3>
 
     <p class="product-description">
-        Beautiful designer blouse with elegant embroidery
-        and stylish detailing.
+        A beautifully detailed designer blouse tailored to complement your saree with an elegant, personalised finish.
         <br>
         ✨ Custom sizes available
         <br>
-        ✨ Custom design options
+       ✨ Custom design options
+        <br>
+        💰 Price: ₹250–₹5,000
+        <br>
+        Final price depends on fabric, embroidery, design, and stitching.
     </p>
+
 
 <div class="product-customization">
 
@@ -6255,6 +6258,7 @@ function openQuickView(productName) {
         "Saree to Salwar Transformation": "images/saree-salwar-transformation.jpg"
     };
 
+    
     const title = document.getElementById("quickViewTitle");
     const popup = document.querySelector(".quick-view-content");
 
@@ -6275,28 +6279,29 @@ whatsappButton.href =
 
 if (productName === "Saree to Salwar Transformation") {
     description.textContent =
-        "Transform your memorable saree into a Kurti, Lehenga, Long Top, Salwar Suit, or other customized outfit. Choose your preferred style, design, and detailing. Enquire with us for customization options and final pricing.";
+       "Give your favourite saree a beautiful new look by transforming it into a kurti, lehenga, long top, salwar suit, or another custom outfit. Choose your preferred style, fabric, design, and finishing details. Contact us on WhatsApp to discuss your transformation."
 } else if (productName === "Beautiful Designer Saree") {
     description.textContent =
-        "Explore our beautiful designer sarees with your choice of colour, fabric, blouse style, measurements, and custom detailing. Enquire with us for available designs and final pricing.";
+        "Discover elegant saree designs with your choice of colour, fabric, and finishing. Custom sizing and stitching are available to help create your preferred look.";
 } else if (productName === "Elegant Party Dress") {
     description.textContent =
-        "Customize your party dress with your preferred colour, fabric, style, measurements, neckline, sleeve design, and finishing details. Enquire with us for available options and final pricing.";
+        "Personalize your party dress with your preferred colour, fabric, style, measurements, neckline, sleeve design, and finishing details. Contact us on WhatsApp to discuss your requirements."
 } else if (productName === "Beautiful Designer Lehenga") {
     description.textContent =
-        "Customize your designer lehenga with your preferred colour, fabric, blouse style, measurements, neckline, sleeve style, lehenga length, flare, dupatta style, and detailing. Enquire with us for available options and final pricing.";
+        "Create your dream lehenga with your preferred colour, fabric, embroidery, blouse design, measurements, dupatta style, and finishing details. Contact us on WhatsApp to discuss your custom design."
        } else if (productName === "Beautiful Designer Kurtis") {
     description.textContent =
-        "Customize your designer Kurti with your preferred colour, fabric, neckline, sleeve style, length, measurements, embroidery, Aari work, and other detailing. Enquire with us for available options and final pricing.";
+        "Personalize your kurti with your preferred colour, fabric, neckline, sleeve style, length, measurements, embroidery, and finishing details. Contact us on WhatsApp to discuss your design."
 } else if (productName === "Elegant Designer Anarkali Dress") {
     description.textContent =
-        "Customize your Anarkali dress with your preferred colour, fabric, neckline, sleeve style, dress length, measurements, embroidery, Aari work, and other detailing. Enquire with us for available options and final pricing.";
+        "Customize your Anarkali dress with your preferred colour, fabric, silhouette, neckline, sleeve style, measurements, embroidery, and finishing details. Contact us on WhatsApp to discuss your design.";
 } else if (productName === "Elegant Designer Blouse") {
     description.textContent =
-        "Customize your designer blouse with your preferred colour, fabric, neckline, sleeve style, blouse length, measurements, back design, embroidery, Aari work, and other detailing. Enquire with us for available options and final pricing.";
+        "Personalize your blouse with your preferred colour, fabric, measurements, neckline, sleeve style, blouse length, back design, embroidery, and finishing details. Price: ₹250–₹5,000. Final price depends on fabric, embroidery, design, and stitching. Contact us on WhatsApp to discuss your custom design.";
 } else {
     description.textContent =
-        "Beautiful designer fashion with custom sizes and customization options.";
+    "Beautiful designer fashion with custom sizes and customization options.";
+
 }
 
 
@@ -6421,8 +6426,12 @@ const productGalleries = {
     "images/Sarees/Designer_Saree_5_10_Fabric_Pleats_Detail.jpg"
 ],
 
+"Elegant Designer Blouse": [
+    "images/Blouses/designer-blouse.jpeg"
+],
 
 };
+
 
 function loadProductGallery(productName) {
     const photos = productGalleries[productName] || [];
